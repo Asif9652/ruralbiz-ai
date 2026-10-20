@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#041711;color:#d1e8dd;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary": "#003824", "error": "#ffb4ab", "tertiary": "#4fdbc8", "on-secondary-container": "#432100", "surface-variant": "#253932", "on-primary-fixed-variant": "#005236", "surface-container": "#0f231d", "primary-container": "#10b981", "on-secondary-fixed": "#2f1500", "secondary": "#ffb77d", "on-secondary-fixed-variant": "#6e3900", "tertiary-fixed-dim": "#4fdbc8", "background": "#041711", "secondary-fixed": "#ffdcc3", "on-error-container": "#ffdad6", "on-tertiary-container": "#004139", "surface-dim": "#041711", "secondary-container": "#d97707", "inverse-primary": "#006c49", "tertiary-container": "#0db6a4", "surface-container-high": "#1a2e27", "on-surface": "#d1e8dd", "surface-tint": "#4edea3", "primary-fixed": "#6ffbbe", "on-tertiary-fixed-variant": "#005048", "primary-fixed-dim": "#4edea3", "on-background": "#d1e8dd", "on-error": "#690005", "inverse-surface": "#d1e8dd", "error-container": "#93000a", "surface": "#041711", "surface-bright": "#293d36", "on-tertiary-fixed": "#00201c", "surface-container-low": "#0b1f19", "outline": "#86948a", "on-primary-container": "#00422b", "primary": "#4edea3", "tertiary-fixed": "#71f8e4", "secondary-fixed-dim": "#ffb77d", "surface-container-lowest": "#00110c", "on-surface-variant": "#bbcabf", "on-secondary": "#4d2600", "inverse-on-surface": "#20342d", "on-tertiary": "#003731", "surface-container-highest": "#253932", "on-primary-fixed": "#002113", "outline-variant": "#3c4a42" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter-desktop": "2rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "margin": "1rem", "gutter": "1.25rem", "space-md": "1rem", "margin-tablet": "2rem", "margin-desktop": "4rem" }, "fontFamily": { "label-badge": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Epilogue"], "headline-sm": ["Epilogue"], "headline-md": ["Epilogue"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-numeric": ["JetBrains Mono"], "display-hero": ["Epilogue"], "body-lg": ["Plus Jakarta Sans"], "headline-lg": ["Epilogue"], "display-hero-mobile": ["Epilogue"] }, "fontSize": { "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "headline-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "label-numeric": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(4,23,17,0.7)]"><div class="h-20 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="RuralBiz AI Emblem" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VVnVSTqlqKgwJDE_6xnymlCfAq8O4BLdwoYI65pyYtd3fkV2f_FC0srPJKglayrIcqgrJE1Oiy553mwlwuek4SMX21NubA7uyw4JliGxB-SSXK1n-CQQ4JQ5A1SHx_hJ6LeRbsowicmia-dA7_tDR3idGr2ertT57X08dWjc04Um64NzmSldHiQRypNnHy3jFjl1KeYydr2V-YB35KFL2AvIiYGQEu6YNEVKQmntQFogXscjslnO0mrOgG"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate leading-none">RuralBiz AI</span></div><span class="font-body-sm text-body-sm text-on-surface-variant truncate opacity-85 leading-tight">MoSJE · Smart India Hackathon</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="flex items-center bg-surface-container-high rounded-full p-space-xs"><button aria-label="English" class="h-8 px-space-xs rounded-full bg-primary text-on-primary font-label-badge text-label-badge flex items-center justify-center transition-all">EN</button><button aria-label="Hindi" class="h-8 px-space-xs rounded-full text-on-surface-variant font-label-badge text-label-badge flex items-center justify-center hover:text-on-surface transition-all">हि</button><button aria-label="Tamil" class="h-8 px-space-xs rounded-full text-on-surface-variant font-label-badge text-label-badge flex items-center justify-center hover:text-on-surface transition-all">த</button></div><a aria-label="User Profile" class="w-11 h-11 flex items-center justify-center rounded-full" data-path="profile-identity" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcWZxJEkuqD6bk--4u2TeWFq5wdWW-DvrRa81W_HgDgrxlBsr__f9SXUUPqX91Eg-NPQ-aZVCWp5QXxnPJB-khnufsWDFksIhx0km4CfWaUsqnuxWHVoeE0lbAVniVsZRZ20YY2UTdV93tyZ05A6nsAzYvHno-UJ_UQHlZsU-kkwNH35g2_KOPk9mqRhtaJ90JFclDZxYlQUCLDBycl60YA2wRUeCkaM4xKU_4otEzMDap95GRvYx40w"/></a></div></div><div class="px-margin pb-space-xs flex items-center justify-between gap-space-sm"><div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high/80 backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-badge text-label-badge text-primary uppercase tracking-wider">MoSJE Public Data Connected</span></div><span class="font-label-badge text-label-badge text-on-surface-variant/75 uppercase tracking-wider truncate">Smart Loan Calculator</span></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-high/90 backdrop-blur-xl p-space-md shadow-xl">
+<div class="absolute -right-12 -top-12 w-40 h-40 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-12 w-32 h-32 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-space-sm relative z-10">
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-space-xs py-0.5 rounded-full bg-surface-container-highest">
+<span class="material-symbols-outlined text-primary text-[14px]">policy</span>
+<span class="font-label-badge text-label-badge text-primary uppercase">MoSJE PS-26091 Engine</span>
+</div>
+<h2 class="font-headline-md text-headline-sm text-on-surface">Smart Loan Structurer</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Concessional credit modeling &amp; debt health simulator</p>
+</div>
+<button aria-label="Voice calculation input" class="flex-shrink-0 w-11 h-11 rounded-full bg-surface-variant hover:bg-surface-bright text-tertiary flex items-center justify-center transition-transform active:scale-95 shadow-md" id="voice-calc-btn">
+<span class="material-symbols-outlined text-[22px]">mic</span>
+</button>
+</div>
+<div class="mt-space-md grid grid-cols-2 gap-space-xs relative z-10">
+<button class="p-space-sm rounded-lg text-left transition-all bg-surface-container-lowest/80 text-on-surface-variant" id="btn-scheme-micro">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase tracking-wider">Scheme A</span>
+<span class="material-symbols-outlined text-[16px] opacity-40">info</span>
+</div>
+<p class="font-body-sm text-body-sm font-semibold mt-1">Micro Finance</p>
+<p class="font-label-numeric text-[11px] text-outline">Up to ₹1.40 Lakh</p>
+</button>
+<button class="p-space-sm rounded-lg text-left transition-all bg-primary-container text-on-primary-container shadow-md" id="btn-scheme-term">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-on-primary-container">Scheme B · Term</span>
+<span class="material-symbols-outlined text-[16px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm font-semibold mt-1">Term Loan System</p>
+<p class="font-label-numeric text-[11px] text-on-primary-container/80">₹1.40L – ₹50 Lakh</p>
+</button>
+</div>
+<div class="mt-space-sm flex items-center gap-2 px-space-sm py-1.5 rounded-lg bg-surface-container-lowest/60">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rule Auto-Assigned: <strong class="text-secondary font-medium">Dairy Bulk Milk Cooler (BMC) Unit</strong></span>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-high/80 backdrop-blur-xl p-space-md space-y-space-md shadow-lg">
+<div class="flex items-center justify-between">
+<span class="font-label-badge text-label-badge uppercase text-tertiary">Interactive Parameters</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">8.0% p.a. Fixed Concessional</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-baseline justify-between">
+<label class="font-body-md text-body-sm text-on-surface" for="project-cost">Total Project Cost</label>
+<span class="font-label-numeric text-headline-sm text-primary" id="cost-display">₹3,20,000</span>
+</div>
+<input class="w-full accent-primary h-2 bg-surface-variant rounded-full cursor-pointer" id="project-cost" max="1000000" min="50000" step="10000" type="range" value="320000"/>
+<div class="flex justify-between font-label-numeric text-[11px] text-outline">
+<span>₹50,000</span>
+<span>₹5,00,000</span>
+<span>₹10,00,000</span>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex items-baseline justify-between">
+<div class="flex items-center gap-1.5">
+<label class="font-body-md text-body-sm text-on-surface" for="margin-share">Margin Money (Self)</label>
+<span class="font-label-badge text-label-badge text-secondary">(Min 10%)</span>
+</div>
+<div class="text-right">
+<span class="font-label-numeric text-body-md text-secondary" id="margin-val-display">₹35,000</span>
+<span class="font-label-numeric text-[12px] text-on-surface-variant ml-1" id="margin-pct-display">(10.9%)</span>
+</div>
+</div>
+<input class="w-full accent-secondary h-2 bg-surface-variant rounded-full cursor-pointer" id="margin-share" max="25" min="10" step="0.5" type="range" value="10.9"/>
+<div class="flex justify-between font-label-numeric text-[11px] text-outline">
+<span>10% (Sovereign Floor)</span>
+<span>17.5%</span>
+<span>25% (Max Subsidy)</span>
+</div>
+</div>
+<div class="pt-space-xs grid grid-cols-2 gap-space-xs">
+<div class="rounded-lg bg-surface-container p-space-sm space-y-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">Approved MoSJE Loan</span>
+<p class="font-label-numeric text-headline-sm text-on-surface" id="loan-amount-display">₹2,85,000</p>
+<span class="inline-flex items-center gap-1 text-[11px] font-label-badge text-primary">
+<span class="material-symbols-outlined text-[13px]">verified</span> Zero Funding Gap
+        </span>
+</div>
+<div class="rounded-lg bg-surface-container p-space-sm space-y-1">
+<span class="font-label-badge text-label-badge text-on-surface-variant">Tenure &amp; Moratorium</span>
+<p class="font-label-numeric text-headline-sm text-tertiary">7 Yrs <span class="font-body-sm text-[12px] text-on-surface-variant">/ 84m</span></p>
+<span class="inline-flex items-center gap-1 text-[11px] font-label-badge text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px]">timelapse</span> 6m Principal Holiday
+        </span>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-high/90 backdrop-blur-xl p-space-md shadow-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Repayment Structure</h3>
+<span class="font-label-badge text-label-badge px-2 py-0.5 rounded-full bg-primary/20 text-primary">Post-Moratorium EMI</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-sm rounded-xl bg-surface-container space-y-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Regular EMI</span>
+<p class="font-label-numeric text-headline-md text-primary" id="emi-display">₹4,420</p>
+<span class="font-label-badge text-label-badge text-outline">Months 7 – 84 (78 Mos)</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container space-y-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Moratorium Interest</span>
+<p class="font-label-numeric text-headline-md text-secondary" id="moratorium-display">₹1,900</p>
+<span class="font-label-badge text-label-badge text-outline">Months 1 – 6 (Principal Holiday)</span>
+</div>
+</div>
+<div class="rounded-lg bg-surface-container p-space-sm space-y-space-xs">
+<div class="flex justify-between font-label-badge text-label-badge">
+<span class="text-secondary flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+          User Equity: <span id="donut-user-pct">11%</span> (<span id="donut-user-amt">₹35k</span>)
+        </span>
+<span class="text-primary flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+          Agency: <span id="donut-loan-pct">89%</span> (<span id="donut-loan-amt">₹2.85L</span>)
+        </span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-variant flex overflow-hidden">
+<div class="h-full bg-secondary transition-all" id="bar-margin" style="width: 10.9%;"></div>
+<div class="h-full bg-primary transition-all" id="bar-loan" style="width: 89.1%;"></div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-high/90 backdrop-blur-xl p-space-md shadow-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">ecg_heart</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Health &amp; Cashflow</h3>
+</div>
+<div class="px-2 py-0.5 rounded-full bg-primary/10 text-primary font-label-badge text-label-badge">
+        DSCR: 4.86x
+      </div>
+</div>
+<div class="space-y-space-xs">
+<div class="flex justify-between items-center py-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Projected Monthly Revenue</span>
+<span class="font-label-numeric text-body-md text-on-surface">₹48,000</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Operating Costs (Power, Testing, AMC)</span>
+<span class="font-label-numeric text-body-md text-error">- ₹26,500</span>
+</div>
+<div class="flex justify-between items-center py-1 bg-surface-container rounded-lg px-2">
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">Net Cashflow before EMI</span>
+<span class="font-label-numeric text-body-md text-tertiary font-semibold">₹21,500</span>
+</div>
+<div class="flex justify-between items-center py-1 bg-primary/10 rounded-lg px-2">
+<span class="font-body-sm text-body-sm text-primary font-semibold">Net Retained Profit (Post-EMI)</span>
+<span class="font-label-numeric text-headline-sm text-primary" id="retained-profit-display">₹17,080</span>
+</div>
+</div>
+<div class="w-full bg-surface-container rounded-lg p-space-sm flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Sovereign Buffer Index</span>
+<p class="font-body-sm text-body-sm text-on-surface">Robust debt servicing capacity for dairy cluster</p>
+</div>
+<div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary/15 text-primary">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-container-low p-space-md space-y-space-xs">
+<div class="flex items-center gap-2 text-secondary">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider">MoSJE Compliance &amp; Verification Notice</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Calculations represent indicative structured terms under National Scheduled Castes / Backward Classes Finance and Development Corporation (NSFDC / NBCFDC) guidelines. Actual sanctions depend on State Channelizing Agency (SCA) district verification, bank linkage appraisal, and Detailed Project Report (DPR) sign-off.
+    </p>
+</div>
+<div class="space-y-space-xs pt-space-xs">
+<a class="w-full py-3.5 px-space-md rounded-xl bg-primary text-on-primary font-body-md font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:translate-y-0.5 transition-all" data-path="sca-application-portal" href="#">
+<span>Apply via State Channelizing Agency (SCA)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-2.5 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm font-semibold flex items-center justify-center gap-1.5 transition-colors" id="btn-save-scenario">
+<span class="material-symbols-outlined text-[18px] text-tertiary">bookmark_add</span>
+<span>Save Scenario</span>
+</button>
+<button class="py-2.5 px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-sm font-semibold flex items-center justify-center gap-1.5 transition-colors" id="btn-download-dpr">
+<span class="material-symbols-outlined text-[18px] text-secondary">download</span>
+<span>Download DPR</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  (() => {
+    const costSlider = document.getElementById('project-cost');
+    const marginSlider = document.getElementById('margin-share');
+    const costDisplay = document.getElementById('cost-display');
+    const marginValDisplay = document.getElementById('margin-val-display');
+    const marginPctDisplay = document.getElementById('margin-pct-display');
+    const loanAmountDisplay = document.getElementById('loan-amount-display');
+    const emiDisplay = document.getElementById('emi-display');
+    const moratoriumDisplay = document.getElementById('moratorium-display');
+    const barMargin = document.getElementById('bar-margin');
+    const barLoan = document.getElementById('bar-loan');
+    const donutUserPct = document.getElementById('donut-user-pct');
+    const donutUserAmt = document.getElementById('donut-user-amt');
+    const donutLoanPct = document.getElementById('donut-loan-pct');
+    const donutLoanAmt = document.getElementById('donut-loan-amt');
+    const retainedProfitDisplay = document.getElementById('retained-profit-display');
+    const btnSchemeMicro = document.getElementById('btn-scheme-micro');
+    const btnSchemeTerm = document.getElementById('btn-scheme-term');
+
+    const formatInr = (n) => '₹' + Math.round(n).toLocaleString('en-IN');
+
+    function recalculate() {
+      const totalCost = parseFloat(costSlider.value);
+      const marginPct = parseFloat(marginSlider.value);
+
+      const marginAmt = totalCost * (marginPct / 100);
+      const loanAmt = totalCost - marginAmt;
+
+      const ratePerMonth = 0.08 / 12;
+      const moratoriumMonths = 6;
+      const totalMonths = 84;
+      const repaymentMonths = totalMonths - moratoriumMonths;
+
+      const moratoriumInterest = loanAmt * ratePerMonth;
+      const emi = (loanAmt * ratePerMonth * Math.pow(1 + ratePerMonth, repaymentMonths)) / (Math.pow(1 + ratePerMonth, repaymentMonths) - 1);
+
+      costDisplay.textContent = formatInr(totalCost);
+      marginValDisplay.textContent = formatInr(marginAmt);
+      marginPctDisplay.textContent = `(${marginPct.toFixed(1)}%)`;
+      loanAmountDisplay.textContent = formatInr(loanAmt);
+      emiDisplay.textContent = formatInr(emi);
+      moratoriumDisplay.textContent = formatInr(moratoriumInterest);
+
+      const netCashflow = 21500;
+      const retainedProfit = Math.max(0, netCashflow - emi);
+      retainedProfitDisplay.textContent = formatInr(retainedProfit);
+
+      const loanPct = (100 - marginPct);
+      barMargin.style.width = marginPct + '%';
+      barLoan.style.width = loanPct + '%';
+
+      donutUserPct.textContent = Math.round(marginPct) + '%';
+      donutUserAmt.textContent = '₹' + Math.round(marginAmt / 1000) + 'k';
+      donutLoanPct.textContent = Math.round(loanPct) + '%';
+      donutLoanAmt.textContent = '₹' + (loanAmt / 100000).toFixed(2) + 'L';
+
+      if (totalCost <= 140000) {
+        btnSchemeMicro.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-md');
+        btnSchemeMicro.classList.remove('bg-surface-container-lowest/80', 'text-on-surface-variant');
+        btnSchemeTerm.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-md');
+        btnSchemeTerm.classList.add('bg-surface-container-lowest/80', 'text-on-surface-variant');
+      } else {
+        btnSchemeTerm.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-md');
+        btnSchemeTerm.classList.remove('bg-surface-container-lowest/80', 'text-on-surface-variant');
+        btnSchemeMicro.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-md');
+        btnSchemeMicro.classList.add('bg-surface-container-lowest/80', 'text-on-surface-variant');
+      }
+    }
+
+    costSlider.addEventListener('input', recalculate);
+    marginSlider.addEventListener('input', recalculate);
+
+    btnSchemeMicro.addEventListener('click', () => {
+      costSlider.value = 120000;
+      recalculate();
+    });
+
+    btnSchemeTerm.addEventListener('click', () => {
+      costSlider.value = 320000;
+      recalculate();
+    });
+
+    document.getElementById('btn-save-scenario').addEventListener('click', () => {
+      const btn = document.getElementById('btn-save-scenario');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary">check</span><span>Saved!</span>';
+      setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+    });
+
+    document.getElementById('btn-download-dpr').addEventListener('click', () => {
+      const btn = document.getElementById('btn-download-dpr');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary">hourglass_top</span><span>Generating...</span>';
+      setTimeout(() => {
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-primary">task_alt</span><span>Ready (PDF)</span>';
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+      }, 1200);
+    });
+
+    const voiceBtn = document.getElementById('voice-calc-btn');
+    voiceBtn.addEventListener('click', () => {
+      voiceBtn.classList.toggle('text-error');
+      voiceBtn.classList.toggle('animate-pulse');
+    });
+
+    recalculate();
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,17,12,0.6)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="landing-village-explorer" href="#"><span class="material-symbols-outlined text-[22px]">location_city</span><span class="font-label-badge text-label-badge mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="wizard-setup" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="font-label-badge text-label-badge mt-0.5">Setup</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="intelligence-dashboard" href="#"><span class="material-symbols-outlined text-[22px]">insights</span><span class="font-label-badge text-label-badge mt-0.5">Intel</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full transition-colors text-primary font-semibold" data-path="smart-loan-calculator" href="#"><span class="material-symbols-outlined text-[22px]">account_balance</span><span class="font-label-badge text-label-badge mt-0.5">Schemes</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="feasibility-compare" href="#"><span class="material-symbols-outlined text-[22px]">compare_arrows</span><span class="font-label-badge text-label-badge mt-0.5">Compare</span></a></div></nav></body></html>

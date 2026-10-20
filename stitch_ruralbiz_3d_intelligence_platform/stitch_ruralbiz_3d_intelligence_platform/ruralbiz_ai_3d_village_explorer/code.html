@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#041711;color:#d1e8dd;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-primary": "#003824", "error": "#ffb4ab", "tertiary": "#4fdbc8", "on-secondary-container": "#432100", "surface-variant": "#253932", "on-primary-fixed-variant": "#005236", "surface-container": "#0f231d", "primary-container": "#10b981", "on-secondary-fixed": "#2f1500", "secondary": "#ffb77d", "on-secondary-fixed-variant": "#6e3900", "tertiary-fixed-dim": "#4fdbc8", "background": "#041711", "secondary-fixed": "#ffdcc3", "on-error-container": "#ffdad6", "on-tertiary-container": "#004139", "surface-dim": "#041711", "secondary-container": "#d97707", "inverse-primary": "#006c49", "tertiary-container": "#0db6a4", "surface-container-high": "#1a2e27", "on-surface": "#d1e8dd", "surface-tint": "#4edea3", "primary-fixed": "#6ffbbe", "on-tertiary-fixed-variant": "#005048", "primary-fixed-dim": "#4edea3", "on-background": "#d1e8dd", "on-error": "#690005", "inverse-surface": "#d1e8dd", "error-container": "#93000a", "surface": "#041711", "surface-bright": "#293d36", "on-tertiary-fixed": "#00201c", "surface-container-low": "#0b1f19", "outline": "#86948a", "on-primary-container": "#00422b", "primary": "#4edea3", "tertiary-fixed": "#71f8e4", "secondary-fixed-dim": "#ffb77d", "surface-container-lowest": "#00110c", "on-surface-variant": "#bbcabf", "on-secondary": "#4d2600", "inverse-on-surface": "#20342d", "on-tertiary": "#003731", "surface-container-highest": "#253932", "on-primary-fixed": "#002113", "outline-variant": "#3c4a42" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter-desktop": "2rem", "space-lg": "1.5rem", "space-xl": "2.5rem", "margin": "1rem", "gutter": "1.25rem", "space-md": "1rem", "margin-tablet": "2rem", "margin-desktop": "4rem" }, "fontFamily": { "label-badge": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Epilogue"], "headline-sm": ["Epilogue"], "headline-md": ["Epilogue"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-numeric": ["JetBrains Mono"], "display-hero": ["Epilogue"], "body-lg": ["Plus Jakarta Sans"], "headline-lg": ["Epilogue"], "display-hero-mobile": ["Epilogue"] }, "fontSize": { "label-badge": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "700" }], "headline-lg-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }], "body-sm": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "body-md": ["15px", { "lineHeight": "24px", "fontWeight": "400" }], "label-numeric": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "500" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(4,23,17,0.7)]"><div class="h-20 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="RuralBiz AI Emblem" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VVnVSTqlqKgwJDE_6xnymlCfAq8O4BLdwoYI65pyYtd3fkV2f_FC0srPJKglayrIcqgrJE1Oiy553mwlwuek4SMX21NubA7uyw4JliGxB-SSXK1n-CQQ4JQ5A1SHx_hJ6LeRbsowicmia-dA7_tDR3idGr2ertT57X08dWjc04Um64NzmSldHiQRypNnHy3jFjl1KeYydr2V-YB35KFL2AvIiYGQEu6YNEVKQmntQFogXscjslnO0mrOgG"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate leading-none">RuralBiz AI</span></div><span class="font-body-sm text-body-sm text-on-surface-variant truncate opacity-85 leading-tight">MoSJE · Smart India Hackathon</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="flex items-center bg-surface-container-high rounded-full p-space-xs"><button aria-label="English" class="h-8 px-space-xs rounded-full bg-primary text-on-primary font-label-badge text-label-badge flex items-center justify-center transition-all">EN</button><button aria-label="Hindi" class="h-8 px-space-xs rounded-full text-on-surface-variant font-label-badge text-label-badge flex items-center justify-center hover:text-on-surface transition-all">हि</button><button aria-label="Tamil" class="h-8 px-space-xs rounded-full text-on-surface-variant font-label-badge text-label-badge flex items-center justify-center hover:text-on-surface transition-all">த</button></div><a aria-label="User Profile" class="w-11 h-11 flex items-center justify-center rounded-full" data-path="profile-identity" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary/30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcWZxJEkuqD6bk--4u2TeWFq5wdWW-DvrRa81W_HgDgrxlBsr__f9SXUUPqX91Eg-NPQ-aZVCWp5QXxnPJB-khnufsWDFksIhx0km4CfWaUsqnuxWHVoeE0lbAVniVsZRZ20YY2UTdV93tyZ05A6nsAzYvHno-UJ_UQHlZsU-kkwNH35g2_KOPk9mqRhtaJ90JFclDZxYlQUCLDBycl60YA2wRUeCkaM4xKU_4otEzMDap95GRvYx40w"/></a></div></div><div class="px-margin pb-space-xs flex items-center justify-between gap-space-sm"><div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high/80 backdrop-blur-md"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-label-badge text-label-badge text-primary uppercase tracking-wider">MoSJE Public Data Connected</span></div><span class="font-label-badge text-label-badge text-on-surface-variant/75 uppercase tracking-wider truncate">Landing Village Explorer</span></div></header><main class="flex-1 flex flex-col relative w-full pt-20 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
+<!-- Interactive 3D Indian Countryside Simulation Hero -->
+<div class="relative w-full rounded-xl overflow-hidden bg-surface-container-low shadow-[0_16px_36px_rgba(4,23,17,0.7)]">
+<div class="relative w-full h-72 rounded-xl overflow-hidden">
+<!-- STITCH_THREEJS_START:ANIMATION_2 class="w-full h-72 rounded-2xl overflow-hidden relative shadow-2xl border border-emerald-500/20" -->
+<div class="w-full h-72 rounded-2xl overflow-hidden relative shadow-2xl border border-emerald-500/20" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_2" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_2');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const width = container.clientWidth || window.innerWidth;
+const height = container.clientHeight || 450;
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 1000);
+camera.position.set(0, 8, 18);
+
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(width, height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+container.appendChild(renderer.domElement);
+
+// Ambient & Sun Lighting
+const ambientLight = new THREE.AmbientLight(0xfff7ed, 0.9);
+scene.add(ambientLight);
+
+const sunLight = new THREE.DirectionalLight(0xfef08a, 1.8);
+sunLight.position.set(12, 20, 10);
+sunLight.castShadow = true;
+scene.add(sunLight);
+
+const tealPoint = new THREE.PointLight(0x10b981, 2.5, 30);
+tealPoint.position.set(-8, 6, 4);
+scene.add(tealPoint);
+
+// Central Stylized Indian Rural Landscape Terrain
+const terrainGroup = new THREE.Group();
+scene.add(terrainGroup);
+
+// Stepped Terraced Hills / Farmland Disc
+const discGeo = new THREE.CylinderGeometry(9.5, 10.5, 1.2, 32);
+const discMat = new THREE.MeshLambertMaterial({ color: 0x064e3b });
+const baseDisc = new THREE.Mesh(discGeo, discMat);
+baseDisc.position.y = -0.6;
+terrainGroup.add(baseDisc);
+
+// Agricultural crop field patterns (ring tiers)
+const tierGeo = new THREE.CylinderGeometry(8.2, 8.8, 0.4, 28);
+const tierMat = new THREE.MeshLambertMaterial({ color: 0x047857 });
+const tier = new THREE.Mesh(tierGeo, tierMat);
+tier.position.y = 0.2;
+terrainGroup.add(tier);
+
+// Village cluster: Tiny low-poly houses with terracotta & ivory roofs
+const houseMat1 = new THREE.MeshLambertMaterial({ color: 0xfef3c7 });
+const roofMat1 = new THREE.MeshLambertMaterial({ color: 0xd97706 });
+const houseMat2 = new THREE.MeshLambertMaterial({ color: 0xe0e7ff });
+const roofMat2 = new THREE.MeshLambertMaterial({ color: 0x10b981 });
+
+const housePositions = [
+  { x: -3.5, z: 1.5, r: 0.2 },
+  { x: -4.8, z: 2.2, r: -0.4 },
+  { x: -2.8, z: 3.5, r: 0.5 },
+  { x: 3.2, z: -1.2, r: 0.8 },
+  { x: 4.5, z: -0.5, r: -0.2 },
+  { x: 2.5, z: 2.5, r: 0.1 }
+];
+
+housePositions.forEach(p => {
+  const house = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.7, 0.9), houseMat1);
+  body.position.y = 0.35;
+  const roof = new THREE.Mesh(new THREE.ConeGeometry(0.75, 0.5, 4), roofMat1);
+  roof.position.y = 0.95;
+  roof.rotation.y = Math.PI / 4;
+  house.add(body);
+  house.add(roof);
+  house.position.set(p.x, 0.4, p.z);
+  house.rotation.y = p.r;
+  terrainGroup.add(house);
+});
+
+// Renewable Energy Windmills (Modern rural tech)
+function createWindmill(x, z) {
+  const wm = new THREE.Group();
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.15, 3.8, 8), new THREE.MeshLambertMaterial({ color: 0xffffff }));
+  pole.position.y = 1.9;
+  wm.add(pole);
+  
+  const rotor = new THREE.Group();
+  rotor.position.y = 3.8;
+  rotor.position.z = 0.1;
+  for(let i=0; i<3; i++) {
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.12, 1.4, 0.03), new THREE.MeshLambertMaterial({ color: 0x34d399 }));
+    blade.position.y = 0.7;
+    const bladeArm = new THREE.Group();
+    bladeArm.rotation.z = (i * Math.PI * 2) / 3;
+    bladeArm.add(blade);
+    rotor.add(bladeArm);
+  }
+  wm.add(rotor);
+  wm.position.set(x, 0.4, z);
+  terrainGroup.add(wm);
+  return rotor;
+}
+const rotor1 = createWindmill(1.8, -3.8);
+const rotor2 = createWindmill(3.6, -4.2);
+
+// Rural Trees (Banyan / Neem stylized foliage)
+const foliageMat = new THREE.MeshLambertMaterial({ color: 0x10b981 });
+const trunkMat = new THREE.MeshLambertMaterial({ color: 0x78350f });
+[
+  [-1.5, -2], [0, -3.2], [-5, -1], [5, 2], [1, 4], [-2, 4.5]
+].forEach(([tx, tz]) => {
+  const tree = new THREE.Group();
+  const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.15, 0.8, 6), trunkMat);
+  trunk.position.y = 0.4;
+  const leaves = new THREE.Mesh(new THREE.DodecahedronGeometry(0.65), foliageMat);
+  leaves.position.y = 1.1;
+  tree.add(trunk);
+  tree.add(leaves);
+  tree.position.set(tx, 0.4, tz);
+  terrainGroup.add(tree);
+});
+
+// Glowing AI Data Ring / Financial Orbit (5km / 10km radar pulses)
+const orbitGeo = new THREE.RingGeometry(5.2, 5.35, 48);
+const orbitMat = new THREE.MeshBasicMaterial({ color: 0xfacc15, side: THREE.DoubleSide, transparent: true, opacity: 0.65 });
+const radarRing = new THREE.Mesh(orbitGeo, orbitMat);
+radarRing.rotation.x = Math.PI / 2;
+radarRing.position.y = 0.45;
+terrainGroup.add(radarRing);
+
+const outerRingGeo = new THREE.RingGeometry(8.5, 8.65, 48);
+const outerRingMat = new THREE.MeshBasicMaterial({ color: 0x34d399, side: THREE.DoubleSide, transparent: true, opacity: 0.4 });
+const outerRadar = new THREE.Mesh(outerRingGeo, outerRingMat);
+outerRadar.rotation.x = Math.PI / 2;
+outerRadar.position.y = 0.45;
+terrainGroup.add(outerRadar);
+
+// Floating AI Market Data Nodes
+const nodesGroup = new THREE.Group();
+const nodeGeo = new THREE.OctahedronGeometry(0.35);
+const nodeMat1 = new THREE.MeshStandardMaterial({ color: 0xfacc15, emissive: 0xca8a04, roughness: 0.2 });
+const nodeMat2 = new THREE.MeshStandardMaterial({ color: 0x34d399, emissive: 0x059669, roughness: 0.2 });
+
+const floatingNodes = [];
+for (let i = 0; i < 9; i++) {
+  const mesh = new THREE.Mesh(nodeGeo, i % 2 === 0 ? nodeMat1 : nodeMat2);
+  const ang = (i / 9) * Math.PI * 2;
+  const rad = 4.5 + Math.sin(i * 1.5) * 1.8;
+  mesh.position.set(Math.cos(ang) * rad, 1.8 + (i % 3) * 0.7, Math.sin(ang) * rad);
+  nodesGroup.add(mesh);
+  floatingNodes.push({ mesh, speed: 0.8 + (i % 4) * 0.3, initialY: mesh.position.y, ang, rad });
+}
+terrainGroup.add(nodesGroup);
+
+// Ambient Floating Fireflies / Gold Sparkles
+const particleGeo = new THREE.BufferGeometry();
+const particleCount = 65;
+const posArray = new Float32Array(particleCount * 3);
+for (let i = 0; i < particleCount * 3; i += 3) {
+  posArray[i] = (Math.random() - 0.5) * 18;
+  posArray[i + 1] = Math.random() * 8;
+  posArray[i + 2] = (Math.random() - 0.5) * 18;
+}
+particleGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+const particleMat = new THREE.PointsMaterial({ size: 0.12, color: 0xfde047, transparent: true, opacity: 0.75 });
+const particles = new THREE.Points(particleGeo, particleMat);
+scene.add(particles);
+
+// Mouse parallax interactivity
+let mouseX = 0;
+let mouseY = 0;
+window.addEventListener('mousemove', (e) => {
+  mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+  mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+});
+
+// Render loop
+let clock = new THREE.Clock();
+function animate() {
+  requestAnimationFrame(animate);
+  const elapsed = clock.getElapsedTime();
+  
+  terrainGroup.rotation.y = elapsed * 0.08 + mouseX * 0.15;
+  camera.position.x = Math.sin(elapsed * 0.05) * 1.2 + mouseX * 1.5;
+  camera.position.y = 8 + mouseY * 1.2;
+  camera.lookAt(0, 1.5, 0);
+
+  rotor1.rotation.z += 0.04;
+  rotor2.rotation.z += 0.035;
+
+  radarRing.scale.setScalar(1 + Math.sin(elapsed * 2) * 0.03);
+  outerRadar.scale.setScalar(1 + Math.cos(elapsed * 1.8) * 0.02);
+
+  floatingNodes.forEach((n, idx) => {
+    n.mesh.position.y = n.initialY + Math.sin(elapsed * n.speed + idx) * 0.35;
+    n.mesh.rotation.y += 0.02;
+    n.mesh.rotation.x += 0.01;
+  });
+
+  particles.rotation.y = elapsed * 0.02;
+  renderer.render(scene, camera);
+}
+animate();
+
+window.addEventListener('resize', () => {
+  const w = container.clientWidth || window.innerWidth;
+  const h = container.clientHeight || 450;
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+  renderer.setSize(w, h);
+});
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_2 -->
+<!-- Gradient Overlays for Cinematic Depth -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-surface-container-lowest/30 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/40 via-transparent to-transparent pointer-events-none"></div>
+<!-- Live 3D Badge -->
+<div class="absolute top-3 left-3 flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container-highest/90 backdrop-blur-md shadow-md">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-badge text-label-badge text-primary uppercase tracking-wider">✨ Live 3D Village Intelligence Simulation</span>
+</div>
+<!-- Pulse Radius Radar Legend -->
+<div class="absolute bottom-3 right-3 flex items-center gap-2 px-space-sm py-1 rounded-full bg-surface-container-lowest/85 backdrop-blur-md shadow-lg">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">5km Core</span>
+</div>
+<span class="text-outline-variant font-label-badge">·</span>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-badge text-label-badge text-on-surface-variant">10km Mandi Belt</span>
+</div>
+</div>
+<!-- Audio / Vernacular Voice Assist Floating Prompt -->
+<div class="absolute bottom-3 left-3 flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container/90 backdrop-blur-md">
+<span class="material-symbols-outlined text-[18px] text-tertiary">volume_up</span>
+<span class="font-label-badge text-label-badge text-on-surface">बोलकर खोजें (Voice Active)</span>
+</div>
+</div>
+</div>
+<!-- Editorial Headline & Purpose Narrative -->
+<div class="flex flex-col space-y-space-xs">
+<div class="inline-flex items-center gap-1.5 self-start px-space-sm py-0.5 rounded-full bg-surface-container-high">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-badge text-label-badge text-primary uppercase tracking-wider">Grassroots Micro-Enterprise Platform</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight mt-1">
+      Build the Right Business. <span class="text-primary">Backed by Real Local Data.</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+      Empowering rural micro-entrepreneurs across India with hyper-local competitor mapping, verified demand signals, and MoSJE micro-finance scheme structuring before you invest.
+    </p>
+</div>
+<!-- Interactive Location & Search Command Console -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-[0_12px_28px_rgba(0,17,12,0.5)] space-y-space-md">
+<!-- Top GPS Fast Trigger -->
+<div class="flex items-center justify-between gap-space-sm">
+<button class="flex-1 flex items-center justify-center gap-2 h-11 px-space-md rounded-lg bg-surface-container-highest hover:bg-surface-bright active:translate-y-0.5 text-tertiary transition-all" id="gps-action-btn" type="button">
+<span class="material-symbols-outlined text-[20px] text-tertiary animate-pulse">my_location</span>
+<span class="font-label-badge text-label-badge text-on-surface uppercase tracking-wide">📍 Use My Current Location</span>
+</button>
+<!-- Search Radius Radios -->
+<div class="flex items-center bg-surface-container-lowest p-1 rounded-lg">
+<button class="radius-toggle-btn h-9 px-space-sm rounded-md bg-primary text-on-primary font-label-badge text-label-badge transition-all" data-radius="5km" id="radius-5km-btn" type="button">
+          5 km
+        </button>
+<button class="radius-toggle-btn h-9 px-space-sm rounded-md text-on-surface-variant hover:text-on-surface font-label-badge text-label-badge transition-all" data-radius="10km" id="radius-10km-btn" type="button">
+          10 km
+        </button>
+</div>
+</div>
+<!-- Free-text Village / Block / District Search Input -->
+<div class="relative flex items-center w-full">
+<div class="absolute left-3.5 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</div>
+<input class="w-full h-12 pl-11 pr-12 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-md text-body-md outline-none focus:bg-surface-container-high transition-all" id="location-search-input" placeholder="Enter Village, Block, or District (e.g. Anand, Pollachi, Barabanki)" type="text"/>
+<button aria-label="Speech to text" class="absolute right-2.5 w-8 h-8 rounded-full flex items-center justify-center bg-surface-container-high text-tertiary hover:text-primary transition-colors" id="mic-trigger-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+</div>
+<!-- Quick Location Chips -->
+<div class="flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-none">
+<span class="font-label-badge text-label-badge text-on-surface-variant flex-shrink-0">Popular:</span>
+<button class="quick-chip flex-shrink-0 px-space-sm py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-bright font-label-badge text-label-badge transition-colors" data-val="Anand, Gujarat" type="button">
+        Anand (Dairy Hub)
+      </button>
+<button class="quick-chip flex-shrink-0 px-space-sm py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-bright font-label-badge text-label-badge transition-colors" data-val="Pollachi, Tamil Nadu" type="button">
+        Pollachi (Coir Cluster)
+      </button>
+<button class="quick-chip flex-shrink-0 px-space-sm py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-bright font-label-badge text-label-badge transition-colors" data-val="Barabanki, Uttar Pradesh" type="button">
+        Barabanki (Mentha Belt)
+      </button>
+</div>
+<!-- Action Pair: Primary Exploration & Smart Loan Flow -->
+<div class="flex flex-col sm:flex-row gap-space-sm pt-1">
+<a class="flex-1 flex items-center justify-center gap-2 h-12 px-space-md rounded-lg bg-gradient-to-r from-primary to-tertiary text-on-primary font-headline-sm text-body-lg shadow-[0_4px_16px_rgba(78,222,163,0.35)] active:translate-y-0.5 transition-all" data-path="intelligence-dashboard" href="#">
+<span>Explore My Village</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="flex-1 flex items-center justify-center gap-2 h-12 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-bright active:translate-y-0.5 text-secondary font-headline-sm text-body-lg transition-all" data-path="smart-loan-calculator" href="#">
+<span class="material-symbols-outlined text-[20px]">calculate</span>
+<span>Calculate Loan</span>
+</a>
+</div>
+</div>
+<!-- Regional Pulse Showcase Banner -->
+<div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container space-x-space-md shadow-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-[24px]">travel_explore</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-lg text-on-surface truncate">Selected Hub: Anand District (Core)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">64,200 Residents · 14 Active Co-ops · 8km Mandi access</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<span class="font-label-numeric text-label-numeric text-primary">94.2%</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Viability Index</span>
+</div>
+</div>
+<!-- 3 Core Benefit Cards with Tactical Glassmorphic Layout -->
+<div class="flex flex-col space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-badge text-label-badge text-tertiary uppercase tracking-wider">Engineered For Sovereign Impact</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Precision Decision Support</h2>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[24px]">verified</span>
+</div>
+<!-- Benefit 1: Hyper-Local Market Intelligence -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-[0_8px_20px_rgba(0,17,12,0.45)] space-y-space-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-[28px]">hub</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-primary/10 text-primary font-label-badge text-label-badge uppercase tracking-wider">5km - 10km Mesh</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">Hyper-Local Market Intelligence</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Discover verified competitor counts, consumer demographics, and untapped demand niches within a 5–10km radius before establishing your shop or processing unit.
+      </p>
+<div class="pt-2 flex items-center gap-2 text-primary font-label-badge text-label-badge">
+<span>CENSUS 2011 + GeM DATA ENGINE</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+<!-- Benefit 2: Feasibility & Risk Advisory -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-[0_8px_20px_rgba(0,17,12,0.45)] space-y-space-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-secondary shadow-inner">
+<span class="material-symbols-outlined text-[28px]">query_stats</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-secondary-container/20 text-secondary font-label-badge text-label-badge uppercase tracking-wider">Harvest-Cycle AI</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">Feasibility &amp; Risk Advisory</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Objective SWOT analysis tailored to local monsoon cycles, seasonal harvest cashflow variations, and regional transportation bottlenecks.
+      </p>
+<div class="pt-2 flex items-center gap-2 text-secondary font-label-badge text-label-badge">
+<span>PREDICTIVE CASHFLOW MODEL</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+<!-- Benefit 3: Smart Loan & Scheme Structuring -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-low shadow-[0_8px_20px_rgba(0,17,12,0.45)] space-y-space-sm relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest flex items-center justify-center text-tertiary shadow-inner">
+<span class="material-symbols-outlined text-[28px]">assured_workload</span>
+</div>
+<span class="px-space-xs py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-badge text-label-badge uppercase tracking-wider">MoSJE Pre-Screened</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">Smart Loan &amp; Scheme Structuring</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Direct alignment with MoSJE Micro-Finance (up to ₹1.40L @ 6.5%) &amp; Term Loans (up to ₹50L @ 8%) with instantaneous DPR (Detailed Project Report) generation.
+      </p>
+<div class="pt-2 flex items-center gap-2 text-tertiary font-label-badge text-label-badge">
+<span>SUBSIDY RECONCILIATION ACTIVE</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Trust & Data Transparency Banner -->
+<div class="flex flex-col p-space-md rounded-xl bg-surface-container-high space-y-space-sm shadow-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">shield</span>
+<span class="font-headline-sm text-body-lg text-on-surface">Data Integrity &amp; Sovereign Standards</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+      Every metric delivered by RuralBiz AI is marked with its provenance level so entrepreneurs make safe decisions:
+    </p>
+<!-- Provenance Indicators Legend -->
+<div class="flex flex-col space-y-2 pt-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary flex-shrink-0"></span>
+<span class="font-label-badge text-label-badge text-on-surface">🟢 Verified Source</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">— Census of India, GeM Registry, MoSJE Portal</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary flex-shrink-0"></span>
+<span class="font-label-badge text-label-badge text-on-surface">🟡 Estimated Demand Model</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">— Micro-cluster demographic projections</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-on-surface-variant/40 flex-shrink-0"></span>
+<span class="font-label-badge text-label-badge text-on-surface">⚪ Local Survey Required</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">— Field validation by Gram Panchayat agent pending</span>
+</div>
+</div>
+<!-- Notice -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest mt-2">
+<p class="font-body-sm text-body-sm text-on-surface-variant/90 leading-tight">
+<span class="text-primary font-medium">Notice:</span> Illustrative sample data for demonstration — live public APIs sync upon GPS query.
+      </p>
+</div>
+</div>
+<!-- MoSJE Credentials & Hackathon Problem Statement Stamp -->
+<div class="flex flex-col items-center justify-center p-space-md rounded-xl bg-surface-container-lowest text-center space-y-space-xs">
+<div class="flex items-center justify-center gap-2">
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase tracking-widest">Ministry of Social Justice and Empowerment</span>
+</div>
+<span class="font-label-numeric text-label-numeric text-tertiary">SIH Problem Statement: 26091</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 max-w-sm">
+      AI-Powered Grassroots Micro-Enterprise Viability &amp; Financial Advisory Engine
+    </p>
+</div>
+</div>
+<!-- Client-side Micro-interactions -->
+<script>
+  (function initLandingInteractions() {
+    const searchInput = document.getElementById('location-search-input');
+    const radius5km = document.getElementById('radius-5km-btn');
+    const radius10km = document.getElementById('radius-10km-btn');
+    const gpsBtn = document.getElementById('gps-action-btn');
+    const micBtn = document.getElementById('mic-trigger-btn');
+    const chips = document.querySelectorAll('.quick-chip');
+
+    // Radius Toggle Behavior
+    function setRadius(selected) {
+      if (selected === '5km') {
+        radius5km.className = 'radius-toggle-btn h-9 px-space-sm rounded-md bg-primary text-on-primary font-label-badge text-label-badge transition-all';
+        radius10km.className = 'radius-toggle-btn h-9 px-space-sm rounded-md text-on-surface-variant hover:text-on-surface font-label-badge text-label-badge transition-all';
+      } else {
+        radius10km.className = 'radius-toggle-btn h-9 px-space-sm rounded-md bg-primary text-on-primary font-label-badge text-label-badge transition-all';
+        radius5km.className = 'radius-toggle-btn h-9 px-space-sm rounded-md text-on-surface-variant hover:text-on-surface font-label-badge text-label-badge transition-all';
+      }
+    }
+
+    if (radius5km && radius10km) {
+      radius5km.addEventListener('click', () => setRadius('5km'));
+      radius10km.addEventListener('click', () => setRadius('10km'));
+    }
+
+    // Quick Chip Selection
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const val = chip.getAttribute('data-val');
+        if (searchInput && val) {
+          searchInput.value = val;
+          searchInput.focus();
+        }
+      });
+    });
+
+    // GPS Simulation
+    if (gpsBtn && searchInput) {
+      gpsBtn.addEventListener('click', () => {
+        gpsBtn.classList.add('opacity-75');
+        const originalText = gpsBtn.innerHTML;
+        gpsBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] text-tertiary animate-spin">sync</span><span class="font-label-badge text-label-badge text-on-surface">Locking Satellite...</span>';
+        setTimeout(() => {
+          searchInput.value = "Anand Block, Gujarat (GPS Pin: 22.5645° N, 72.9289° E)";
+          gpsBtn.innerHTML = originalText;
+          gpsBtn.classList.remove('opacity-75');
+        }, 650);
+      });
+    }
+
+    // Mic Voice Assist Feedback
+    if (micBtn && searchInput) {
+      micBtn.addEventListener('click', () => {
+        micBtn.classList.toggle('text-error');
+        if (micBtn.classList.contains('text-error')) {
+          searchInput.placeholder = "Listening in Hindi, Gujarati, Tamil...";
+          setTimeout(() => {
+            searchInput.value = "Barabanki Mentha Mandi, UP";
+            micBtn.classList.remove('text-error');
+            searchInput.placeholder = "Enter Village, Block, or District (e.g. Anand, Pollachi, Barabanki)";
+          }, 1800);
+        }
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,17,12,0.6)]" data-active-classes="text-primary font-semibold"><div class="flex items-center justify-around h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full transition-colors text-primary font-semibold" data-path="landing-village-explorer" href="#"><span class="material-symbols-outlined text-[22px]">location_city</span><span class="font-label-badge text-label-badge mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="wizard-setup" href="#"><span class="material-symbols-outlined text-[22px]">tune</span><span class="font-label-badge text-label-badge mt-0.5">Setup</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="intelligence-dashboard" href="#"><span class="material-symbols-outlined text-[22px]">insights</span><span class="font-label-badge text-label-badge mt-0.5">Intel</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="smart-loan-calculator" href="#"><span class="material-symbols-outlined text-[22px]">account_balance</span><span class="font-label-badge text-label-badge mt-0.5">Schemes</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="feasibility-compare" href="#"><span class="material-symbols-outlined text-[22px]">compare_arrows</span><span class="font-label-badge text-label-badge mt-0.5">Compare</span></a></div></nav></body></html>

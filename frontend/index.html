@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>RuralBiz AI — AI-Driven Hyper-Local Business Advisory & Concessional Loan Structurer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>"/>
+  
+  <!-- Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  
+  <!-- Leaflet CSS for Dark Spatial Maps -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <style>
+    :root {
+      --forest-900: #0a1b15;
+      --forest-800: #102820;
+      --forest-700: #16362b;
+      --emerald-600: #0f7250;
+      --emerald-500: #15966A;
+      --emerald-400: #1db983;
+      --mint: #B9F4D3;
+      --ivory: #F8F6EF;
+      --sand: #E9E2D3;
+      --charcoal: #18221E;
+      --gold: #D6B56D;
+      --white: #FFFFFF;
+    }
+
+    @layer base {
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: var(--forest-800);
+        color: var(--ivory);
+        font-family: 'Plus Jakarta Sans', 'Kanit', sans-serif;
+      }
+      body {
+        overscroll-behavior-y: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    }
+    ::-webkit-scrollbar { display: none; }
+
+    /* Editorial & Shimmer Typography */
+    .hero-heading {
+      background: linear-gradient(180deg, #FFFFFF 0%, #E9E2D3 45%, #D6B56D 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-heading-emerald {
+      background: linear-gradient(180deg, #FFFFFF 0%, #B9F4D3 40%, #15966A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .font-kanit { font-family: 'Kanit', sans-serif; }
+    .font-serif { font-family: 'Fraunces', 'Playfair Display', serif; }
+
+    /* Premium Glassmorphic Cards & Panels */
+    .glass-card {
+      background: rgba(16, 40, 32, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(185, 244, 211, 0.12);
+      box-shadow: 0 16px 36px -4px rgba(10, 27, 21, 0.55);
+    }
+    .glass-card-subtle {
+      background: rgba(22, 54, 43, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(185, 244, 211, 0.08);
+    }
+
+    /* Interactive Pill Buttons (Motion Brief) */
+    .btn-pill-emerald {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #15966A 0%, #1db983 100%);
+      color: #F8F6EF;
+      font-weight: 600;
+      padding: 0.75rem 1.75rem;
+      box-shadow: 0 4px 16px rgba(21, 150, 106, 0.35);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .btn-pill-emerald:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(21, 150, 106, 0.5);
+    }
+    .btn-pill-emerald:active {
+      transform: scale(0.97);
+    }
+
+    .btn-pill-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #D6B56D 0%, #e2c98d 100%);
+      color: #18221E;
+      font-weight: 700;
+      padding: 0.75rem 1.75rem;
+      box-shadow: 0 4px 16px rgba(214, 181, 109, 0.35);
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .btn-pill-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(214, 181, 109, 0.5);
+    }
+    .btn-pill-gold:active {
+      transform: scale(0.97);
+    }
+
+    .btn-pill-mint {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      background: rgba(185, 244, 211, 0.12);
+      border: 1px solid rgba(185, 244, 211, 0.4);
+      color: #B9F4D3;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .btn-pill-mint:hover {
+      background: rgba(185, 244, 211, 0.22);
+      border-color: #B9F4D3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(185, 244, 211, 0.25);
+    }
+    .btn-pill-mint:active {
+      transform: scale(0.97);
+    }
+
+    .btn-pill-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      background: rgba(248, 246, 239, 0.06);
+      border: 1px solid rgba(233, 226, 211, 0.25);
+      color: #F8F6EF;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .btn-pill-outline:hover {
+      background: rgba(248, 246, 239, 0.12);
+      border-color: rgba(214, 181, 109, 0.5);
+      color: #D6B56D;
+      transform: translateY(-1px);
+    }
+    .btn-pill-outline:active {
+      transform: scale(0.97);
+    }
+
+    .btn-pill-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      background: rgba(185, 244, 211, 0.08);
+      border: 1px solid rgba(185, 244, 211, 0.25);
+      color: #B9F4D3;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 0.625rem 1.25rem;
+      transition: all 0.25s ease;
+    }
+    .btn-pill-location:hover {
+      background: rgba(185, 244, 211, 0.16);
+      border-color: #B9F4D3;
+      transform: translateY(-1px);
+    }
+
+    /* Typewriter Intro Animation & Cursor */
+    .typewriter-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.15em;
+      background-color: #15966A;
+      margin-left: 3px;
+      vertical-align: -2px;
+      animation: blink 0.9s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Report Section Badges */
+    .badge-verified {
+      background: rgba(21, 150, 106, 0.18);
+      color: #B9F4D3;
+      border: 1px solid rgba(21, 150, 106, 0.4);
+    }
+    .badge-calculated {
+      background: rgba(185, 244, 211, 0.15);
+      color: #F8F6EF;
+      border: 1px solid rgba(185, 244, 211, 0.3);
+    }
+    .badge-estimate {
+      background: rgba(214, 181, 109, 0.18);
+      color: #D6B56D;
+      border: 1px solid rgba(214, 181, 109, 0.4);
+    }
+    .badge-verify-needed {
+      background: rgba(249, 115, 22, 0.18);
+      color: #fdba74;
+      border: 1px solid rgba(249, 115, 22, 0.4);
+    }
+    .badge-unavailable {
+      background: rgba(233, 226, 211, 0.12);
+      color: #E9E2D3;
+      border: 1px solid rgba(233, 226, 211, 0.25);
+    }
+
+    /* Map Dark Filter */
+    .leaflet-container {
+      background-color: #0d211a;
+      font-family: inherit;
+    }
+    .dark-map-tiles .leaflet-tile {
+      filter: invert(100%) hue-rotate(180deg) brightness(85%) contrast(90%);
+    }
+    .leaflet-popup-content-wrapper {
+      background: #102820;
+      color: #F8F6EF;
+      border: 1px solid #16362b;
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+    }
+    .leaflet-popup-tip {
+      background: #102820;
+    }
+  </style>
+
+  <!-- Tailwind CDN & Custom Stitch Theme Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              900: "#0a1b15",
+              800: "#102820",
+              700: "#16362b",
+              600: "#1d4739"
+            },
+            emerald: {
+              DEFAULT: "#15966A",
+              light: "#1db983",
+              dark: "#0f7250",
+              50: "#ecfdf5",
+              100: "#d1fae5",
+              200: "#a7f3d0",
+              500: "#15966A",
+              600: "#0f7250"
+            },
+            mint: {
+              DEFAULT: "#B9F4D3",
+              light: "#d5fae5",
+              dark: "#7ee2aa"
+            },
+            ivory: {
+              DEFAULT: "#F8F6EF",
+              light: "#fcfbf7",
+              dark: "#ede8db"
+            },
+            sand: {
+              DEFAULT: "#E9E2D3",
+              light: "#f2ede3",
+              dark: "#d4cbb8"
+            },
+            charcoal: {
+              DEFAULT: "#18221E",
+              dark: "#111815",
+              light: "#25332e"
+            },
+            gold: {
+              DEFAULT: "#D6B56D",
+              light: "#e2c98d",
+              dark: "#b89447"
+            },
+            // Stitch Semantic mappings to Forest & Emerald
+            surface: "#102820",
+            "surface-dim": "#0a1b15",
+            "surface-bright": "#1d4739",
+            "surface-container-lowest": "#071410",
+            "surface-container-low": "#132f26",
+            "surface-container": "#17382e",
+            "surface-container-high": "#1c4538",
+            "surface-container-highest": "#235445",
+            "on-surface": "#F8F6EF",
+            "on-surface-variant": "#E9E2D3",
+            primary: "#15966A",
+            "primary-container": "#1db983",
+            "on-primary": "#F8F6EF",
+            secondary: "#D6B56D",
+            "secondary-container": "#b89447",
+            "on-secondary": "#18221E",
+            tertiary: "#B9F4D3",
+            "tertiary-container": "#7ee2aa",
+            "on-tertiary": "#102820",
+            outline: "#7e9489",
+            "outline-variant": "#2a463a"
+          },
+          fontFamily: {
+            serif: ["Fraunces", "Playfair Display", "serif"],
+            editorial: ["Fraunces", "Playfair Display", "serif"],
+            sans: ["Plus Jakarta Sans", "Kanit", "sans-serif"],
+            display: ["Kanit", "Epilogue", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "margin": "1rem"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Libraries: Three.js and Leaflet -->
+  <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col">
+
+  <!-- Top Fixed Application Header -->
+  <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(4,23,17,0.7)] border-b border-outline-variant/30">
+    <div class="h-20 px-margin flex items-center justify-between gap-space-sm">
+      
+      <!-- Brand Emblem & SIH 26091 Label -->
+      <div class="flex items-center gap-space-sm min-w-0">
+        <div class="w-10 h-10 rounded-xl bg-surface-container-high flex items-center justify-center border border-primary/30 flex-shrink-0 shadow-[0_0_12px_rgba(78,222,163,0.2)]">
+          <span class="material-symbols-outlined text-[24px] text-primary">agriculture</span>
+        </div>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-space-xs">
+            <span class="font-headline-sm text-headline-sm text-on-surface tracking-tight truncate leading-none">RuralBiz AI</span>
+            <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+          </div>
+          <span class="font-body-sm text-[11px] text-on-surface-variant truncate opacity-85 leading-tight mt-0.5">MoSJE · Smart India Hackathon 26091</span>
+        </div>
+      </div>
+
+      <!-- Controls: Language, Theme, Accessibility -->
+      <div class="flex items-center gap-space-xs flex-shrink-0">
+        <!-- Language Switcher (EN, HI, TA) -->
+        <div class="flex items-center bg-surface-container-high rounded-full p-space-xs border border-outline-variant/30">
+          <button aria-label="English" data-lang="en" class="lang-btn h-8 px-space-xs rounded-full bg-primary text-on-primary font-label-badge text-label-badge flex items-center justify-center transition-all shadow">EN</button>
+          <button aria-label="Hindi" data-lang="hi" class="lang-btn h-8 px-space-xs rounded-full text-on-surface-variant font-label-badge text-label-badge flex items-center justify-center hover:text-on-surface transition-all">हि</button>
+          <button aria-label="Tamil" data-lang="ta" class="lang-btn h-8 px-space-xs rounded-full text-on-surface-variant font-label-badge text-label-badge flex items-center justify-center hover:text-on-surface transition-all">த</button>
+        </div>
+
+        <!-- Reduced Motion Toggle -->
+        <button id="motion-toggle" title="Toggle 3D Animation & Motion" aria-label="Reduced Motion" class="w-9 h-9 rounded-full bg-surface-container-high hover:bg-surface-bright flex items-center justify-center text-on-surface-variant transition-all border border-outline-variant/30">
+          <span class="material-symbols-outlined text-[18px]">motion_photos_auto</span>
+        </button>
+
+        <!-- Kage Precision Edition Toggle -->
+        <button id="kage-theme-toggle" title="Toggle Kage Precision Sumi-e Theme" aria-label="Kage Theme" class="w-9 h-9 rounded-full bg-surface-container-high hover:bg-surface-bright flex items-center justify-center text-secondary transition-all border border-outline-variant/30">
+          <span class="material-symbols-outlined text-[18px]">dark_mode</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Status Strip -->
+    <div class="px-margin pb-space-xs flex items-center justify-between gap-space-sm border-t border-outline-variant/10 pt-1">
+      <div class="inline-flex items-center gap-1.5 px-space-sm py-0.5 rounded-full bg-surface-container-high/80 backdrop-blur-md">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <span data-i18n="data_connected" class="font-label-badge text-[10px] text-primary uppercase tracking-wider">MoSJE Public Data Connected</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-secondary text-[14px]">location_on</span>
+        <span id="header-location-display" class="font-label-badge text-[11px] text-on-surface truncate">Anaimalai, Coimbatore</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container with Tab Views -->
+  <main class="flex-1 flex flex-col relative w-full pt-28 pb-24 bg-surface min-h-screen">
+    
+    <!-- ═══════════════════════════════════════════════════════════════════
+         VIEW 1: LANDING & 3D VILLAGE EXPLORER
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section data-view="landing-village-explorer" class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg">
+      
+      <!-- ═══════════════════════════════════════════════════════════════
+           LOVABLE EDITORIAL COVER PAGE HERO BANNER
+           ═══════════════════════════════════════════════════════════════ -->
+      <div class="relative w-full rounded-3xl overflow-hidden bg-[#fbf9f4] dark:bg-[#071c14] border border-[#e8e4d8] dark:border-primary/25 shadow-2xl p-6 sm:p-8 md:p-12 transition-colors">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Left Column: Copy & Actions -->
+          <div class="lg:col-span-6 flex flex-col space-y-5 sm:space-y-6">
+            
+            <!-- Typewriter Introduction Tag -->
+            <div class="inline-flex items-center gap-2 self-start px-4 py-2 rounded-full bg-forest-900/80 dark:bg-surface-container-high border border-primary/30 shadow-md text-xs sm:text-sm text-mint" aria-live="polite">
+              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              <span id="hero-typewriter-text" class="font-medium">Every village has opportunities. Discover yours with real local data.</span>
+              <span class="typewriter-cursor"></span>
+            </div>
+
+            <!-- Main Serif Headline -->
+            <h1 data-i18n="hero_headline" class="font-serif text-3xl sm:text-5xl lg:text-[46px] font-bold text-[#102820] dark:text-[#F8F6EF] leading-[1.12] tracking-tight">
+              Build the Right Business. Backed by Real Local Data.
+            </h1>
+
+            <!-- Supporting Subtitle -->
+            <p data-i18n="hero_subtitle" class="font-body-md text-sm sm:text-base text-[#4a5f54] dark:text-[#E9E2D3] leading-relaxed max-w-xl">
+              Explore your local market, understand your funding options, and plan your business with confidence.
+            </p>
+
+            <!-- Action Button Row: Start My Plan -->
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <button id="hero-start-plan-btn" class="h-12 px-7 rounded-xl bg-[#e59318] hover:bg-[#d68510] active:scale-95 text-[#1b1202] font-bold text-base flex items-center gap-2 shadow-lg hover:shadow-xl transition-all">
+                <span data-i18n="btn_start_plan">Start my plan</span>
+                <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+              </button>
+
+              <button id="hero-how-it-works-btn" class="flex items-center gap-2 text-[#1e5138] dark:text-primary hover:text-[#123e2b] dark:hover:text-primary-container font-medium text-sm transition-colors px-2 py-1.5">
+                <span class="w-8 h-8 rounded-full border border-[#1e5138]/30 dark:border-primary/40 flex items-center justify-center">
+                  <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+                </span>
+                <span data-i18n="btn_how_it_works">How it works</span>
+              </button>
+
+              <button id="hero-use-location-btn" class="btn-pill-outline shadow-sm text-xs py-2 px-3.5">
+                <span class="material-symbols-outlined text-[16px]">near_me</span>
+                <span data-i18n="btn_use_current_loc">Use Current Location</span>
+              </button>
+            </div>
+
+            <!-- Trust Bar / Key Proof Points -->
+            <div class="pt-3 border-t border-[#e2ddd0] dark:border-outline-variant/20 flex items-center gap-6 text-xs text-[#5f7469] dark:text-on-surface-variant flex-wrap">
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-primary text-[16px]">verified</span>
+                <span>MoSJE Concessional Rates</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-secondary text-[16px]">near_me</span>
+                <span>Real 5km & 10km Radius Data</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-mint text-[16px]">check_circle</span>
+                <span>Zero Fabricated Baseline</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Framed Rural Artwork with Floating Badge -->
+          <div class="lg:col-span-6 relative">
+            <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/70 dark:border-white/10 group bg-[#041711]">
+              <img src="rural_cover_art.png" alt="Indian Rural Micro-Entrepreneurs in Village" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"/>
+              
+              <!-- Subtle artistic vignette overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none"></div>
+
+              <!-- Floating Interactive Pill Badge -->
+              <div class="absolute bottom-4 right-4 bg-white/95 dark:bg-[#0f231d]/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-xl border border-black/5 dark:border-white/10 flex items-center gap-2">
+                <div class="w-7 h-7 rounded-full bg-[#eef5f0] dark:bg-primary/20 flex items-center justify-center text-[#2d7d56] dark:text-primary">
+                  <span class="material-symbols-outlined text-[16px]">eco</span>
+                </div>
+                <span data-i18n="cover_badge" class="text-xs sm:text-sm font-semibold text-[#1e382b] dark:text-on-surface">A plan that starts close to home</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll Storytelling Visual Journey Bar -->
+      <div class="w-full p-4 rounded-2xl bg-surface-container-low border border-outline-variant/30 shadow-md">
+        <div class="flex items-center justify-between gap-2 overflow-x-auto no-scrollbar py-1">
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">1</span>
+            <span class="text-xs font-semibold text-on-surface">Discover Countryside</span>
+          </div>
+          <span class="text-outline text-xs">→</span>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">2</span>
+            <span class="text-xs font-semibold text-on-surface">Select Village</span>
+          </div>
+          <span class="text-outline text-xs">→</span>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">3</span>
+            <span class="text-xs font-semibold text-on-surface">Explore Real Businesses</span>
+          </div>
+          <span class="text-outline text-xs">→</span>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">4</span>
+            <span class="text-xs font-semibold text-on-surface">Understand Market</span>
+          </div>
+          <span class="text-outline text-xs">→</span>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">5</span>
+            <span class="text-xs font-semibold text-on-surface">Calculate Funding</span>
+          </div>
+          <span class="text-outline text-xs">→</span>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <span class="w-6 h-6 rounded-full bg-secondary/30 text-secondary flex items-center justify-center font-bold text-xs">6</span>
+            <span class="text-xs font-bold text-secondary">Review Decision DPR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 3D Indian Countryside Simulation Explorer -->
+      <div id="village-3d-simulation-card" class="relative w-full rounded-2xl overflow-hidden bg-surface-container-low shadow-[0_16px_36px_rgba(4,23,17,0.7)] border border-primary/20 transition-all duration-300">
+        <div class="relative w-full h-64 md:h-72 rounded-2xl overflow-hidden">
+          <div id="threejs-container-ANIMATION_2" style="width:100%;height:100%"></div>
+
+          <!-- Live 3D Badge -->
+          <div class="absolute top-3 left-3 flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-lowest/85 border border-primary/30 backdrop-blur-md shadow-md">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            <span data-i18n="hero_badge" class="font-mono text-[10px] text-primary tracking-wider uppercase font-semibold">Live 3D Village Intelligence Simulation</span>
+          </div>
+
+          <!-- Close / Dismiss 3D Simulation Button -->
+          <button id="btn-close-simulation" type="button" title="Dismiss 3D Simulation" class="absolute top-3 right-3 flex items-center justify-center w-7 h-7 rounded-full bg-surface-container-lowest/85 hover:bg-surface-container-highest border border-outline-variant/50 text-on-surface-variant hover:text-on-surface backdrop-blur-md transition-all active:scale-95 shadow-md">
+            <span class="material-symbols-outlined text-[16px]">close</span>
+          </button>
+
+          <!-- Radar Legend -->
+          <div class="absolute bottom-3 right-3 flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-lowest/85 border border-outline-variant/40 backdrop-blur-md shadow-lg">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <span data-i18n="radar_core" class="font-mono text-[10px] text-on-surface">5km Core</span>
+            </div>
+            <span class="text-outline font-mono text-[10px]">·</span>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-secondary"></span>
+              <span data-i18n="radar_mandi" class="font-mono text-[10px] text-on-surface">10km Mandi Belt</span>
+            </div>
+          </div>
+
+          <!-- Vernacular Voice Audio Prompt -->
+          <button class="audio-help-trigger absolute bottom-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high/90 border border-primary/30 backdrop-blur-md text-tertiary hover:text-primary transition-all active:scale-95 shadow">
+            <span class="material-symbols-outlined text-[16px]">volume_up</span>
+            <span data-i18n="voice_active" class="font-mono text-[10px]">குரல் உதவி (Voice Help)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Village Search & Location Trigger Card -->
+      <div id="village-location-card" class="p-space-md rounded-xl bg-surface-container-low shadow-xl border border-outline-variant/30 space-y-space-sm transition-all duration-300">
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <label class="font-label-badge text-xs uppercase text-on-surface-variant font-semibold flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-primary text-[16px]">location_on</span>
+              <span>Step 1: Select Village / Town</span>
+            </label>
+            <span id="location-active-status" class="font-mono text-[11px] text-primary"></span>
+          </div>
+          <div id="location-input-wrapper" class="flex items-center gap-2 bg-surface-container-high rounded-xl px-3 py-2 border border-outline-variant/40 focus-within:border-primary transition-all">
+            <span class="material-symbols-outlined text-primary text-[20px]">search</span>
+            <input id="location-search-input" type="text" data-i18n="search_placeholder" placeholder="Enter Village, Block, or District (e.g. Anaimalai, Pollachi, Baramati)" value="Anaimalai, Coimbatore" class="bg-transparent text-on-surface text-sm w-full outline-none font-body-md"/>
+            <button id="search-submit-btn" class="h-8 px-4 rounded-lg bg-primary text-on-primary font-label-badge text-xs font-semibold flex items-center justify-center flex-shrink-0 hover:bg-primary-container transition-all">
+              Search
+            </button>
+          </div>
+        </div>
+
+        <!-- GPS Geolocation Button & Confirm Location -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-2 pt-1">
+          <div class="flex items-center gap-2 w-full sm:w-auto">
+            <button id="gps-action-btn" class="w-full sm:w-auto h-10 px-4 rounded-lg bg-surface-container-highest hover:bg-surface-bright text-tertiary font-label-badge text-xs flex items-center justify-center gap-2 border border-tertiary/30 transition-all active:scale-95 shadow">
+              <span class="material-symbols-outlined text-[18px]">my_location</span>
+              <span data-i18n="btn_detect_gps">Use My Current Location</span>
+            </button>
+            <button id="confirm-location-btn" class="h-10 px-4 rounded-lg bg-primary text-on-primary font-label-badge text-xs font-semibold flex items-center justify-center gap-1.5 shadow hover:bg-primary-container transition-all active:scale-95 whitespace-nowrap">
+              <span>Start Plan with this Village</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+          
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="text-xs text-on-surface-variant">Quick Explore:</span>
+            <button class="quick-chip text-xs px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" data-val="Anaimalai, Coimbatore">Anaimalai</button>
+            <button class="quick-chip text-xs px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" data-val="Pollachi, Coimbatore">Pollachi</button>
+            <button class="quick-chip text-xs px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" data-val="Sulur, Coimbatore">Sulur</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Rural Sectors Grid -->
+      <div class="space-y-3">
+        <h2 data-i18n="quick_sectors_title" class="font-headline-sm text-lg text-on-surface font-semibold">High-Potential Rural Business Sectors</h2>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+          
+          <div data-sector-select="clothing" class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all border border-outline-variant/30 hover:border-indigo-400/50 group shadow">
+            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-[24px]">checkroom</span>
+            </div>
+            <h3 class="font-headline-sm text-sm font-semibold text-on-surface">Garments & Tailoring</h3>
+            <p class="font-body-sm text-[11px] text-on-surface-variant mt-1">Ready-made apparel, custom bridal tailoring, school uniforms</p>
+          </div>
+
+          <div data-sector-select="dairy" class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all border border-outline-variant/30 hover:border-secondary/50 group shadow">
+            <div class="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-[24px]">store</span>
+            </div>
+            <h3 class="font-headline-sm text-sm font-semibold text-on-surface" data-i18n="sector_dairy">Dairy & Bulk Chilling</h3>
+            <p class="font-body-sm text-[11px] text-on-surface-variant mt-1">Milk pooling, chilling hubs, value-added paneer and ghee</p>
+          </div>
+
+          <div data-sector-select="agro_processing" class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all border border-outline-variant/30 hover:border-primary/50 group shadow">
+            <div class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-[24px]">grain</span>
+            </div>
+            <h3 class="font-headline-sm text-sm font-semibold text-on-surface" data-i18n="sector_agro">Agro-Processing & Millets</h3>
+            <p class="font-body-sm text-[11px] text-on-surface-variant mt-1">Finger millet (ragi) flour, copra processing, spices</p>
+          </div>
+
+          <div data-sector-select="logistics_repair" class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all border border-outline-variant/30 hover:border-tertiary/50 group shadow">
+            <div class="w-10 h-10 rounded-lg bg-tertiary/10 text-tertiary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-[24px]">local_shipping</span>
+            </div>
+            <h3 class="font-headline-sm text-sm font-semibold text-on-surface" data-i18n="sector_logistics">Machinery & Fleet</h3>
+            <p class="font-body-sm text-[11px] text-on-surface-variant mt-1">Power tiller rentals, micro-freight, farm equipment spares</p>
+          </div>
+
+          <div data-sector-select="artisan" class="p-4 rounded-xl bg-surface-container-low hover:bg-surface-container-high cursor-pointer transition-all border border-outline-variant/30 hover:border-secondary/50 group shadow">
+            <div class="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-[24px]">palette</span>
+            </div>
+            <h3 class="font-headline-sm text-sm font-semibold text-on-surface" data-i18n="sector_artisan">Handloom & Coir Crafts</h3>
+            <p class="font-body-sm text-[11px] text-on-surface-variant mt-1">Coir geo-textiles, cotton handloom, pottery clusters</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Action Button to Step 2 Wizard -->
+      <div class="pt-2">
+        <button data-nav-target="wizard-setup" class="w-full h-12 rounded-xl bg-primary text-on-primary font-headline-sm text-sm font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-primary-container transition-all active:scale-98">
+          <span>Configure Local Enterprise Profile</span>
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         VIEW 2: LOCATION & ENTERPRISE PROFILE WIZARD
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section data-view="wizard-setup" class="hidden flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+      
+      <!-- Progress Bar -->
+      <div class="p-space-md rounded-2xl bg-surface-container-low shadow border border-outline-variant/30 space-y-2">
+        <div class="flex items-center justify-between text-on-surface-variant font-label-badge text-xs uppercase tracking-wider">
+          <span class="flex items-center gap-1.5 text-primary">
+            <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+            Step 1 of 3 · Enterprise Profile & Location Setup
+          </span>
+          <span class="text-on-surface font-label-numeric">50% Completed</span>
+        </div>
+        <div class="w-full flex items-center gap-2">
+          <div class="h-2 flex-1 rounded-full bg-primary"></div>
+          <div class="h-2 flex-1 rounded-full bg-primary"></div>
+          <div class="h-2 flex-1 rounded-full bg-surface-container-highest"></div>
+        </div>
+      </div>
+
+      <!-- STEP 1: WHERE IS YOUR BUSINESS LOCATED? -->
+      <div class="p-5 rounded-2xl bg-surface-container-low shadow-xl border border-outline-variant/30 space-y-4">
+        <!-- Step 1 Header -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-primary/20 text-primary flex items-center justify-center font-bold text-sm border border-primary/30">
+              1
+            </div>
+            <div>
+              <h2 class="font-headline-sm text-base sm:text-lg text-on-surface font-semibold flex items-center gap-2">
+                <span>Where is your business located?</span>
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              </h2>
+              <p class="text-xs text-on-surface-variant">Enter your village, panchayat, town or click GPS to detect your location.</p>
+            </div>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary font-mono text-[11px] uppercase tracking-wider flex items-center gap-1">
+            <span class="material-symbols-outlined text-[13px]">my_location</span> Real GPS / OSM
+          </span>
+        </div>
+
+        <!-- Location Search & GPS Controls inside Wizard -->
+        <div class="flex flex-col sm:flex-row items-center gap-2.5">
+          <div class="relative flex-1 w-full bg-surface-container-high rounded-xl px-3.5 py-2.5 border border-outline-variant/40 focus-within:border-primary transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">search</span>
+            <input id="wizard-location-search-input" type="text" placeholder="Enter Village, Panchayat, Taluk or District (e.g. Thandalam, Thiruvallur)" value="Thandalam, Thiruvallur" class="bg-transparent text-on-surface text-sm w-full outline-none font-body-md placeholder:text-on-surface-variant/50"/>
+            <button id="wizard-location-search-btn" type="button" class="h-8 px-4 rounded-lg bg-primary text-on-primary font-label-badge text-xs font-semibold flex items-center justify-center flex-shrink-0 hover:bg-primary-container transition-all shadow-sm">
+              Search
+            </button>
+          </div>
+
+          <!-- GPS Button inside Wizard -->
+          <button id="wizard-gps-btn" type="button" class="w-full sm:w-auto h-11 px-4 rounded-xl bg-surface-container-highest hover:bg-surface-bright text-tertiary font-label-badge text-xs flex items-center justify-center gap-2 border border-tertiary/30 transition-all active:scale-95 shadow whitespace-nowrap">
+            <span class="material-symbols-outlined text-[18px]">near_me</span>
+            <span>Use My Current Location</span>
+          </button>
+        </div>
+
+        <!-- Quick Location Suggestion Chips -->
+        <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+          <span class="text-xs text-on-surface-variant">Quick Locations:</span>
+          <button type="button" class="wizard-loc-chip text-xs px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-loc="Thandalam, Thiruvallur">Thandalam, Thiruvallur</button>
+          <button type="button" class="wizard-loc-chip text-xs px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-loc="Anaimalai, Coimbatore">Anaimalai, Coimbatore</button>
+          <button type="button" class="wizard-loc-chip text-xs px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-loc="Pollachi, Coimbatore">Pollachi</button>
+          <button type="button" class="wizard-loc-chip text-xs px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-loc="Sulur, Coimbatore">Sulur</button>
+        </div>
+
+        <!-- Verified Location Administrative Details Card -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 p-3 rounded-xl bg-surface-container-high/60 border border-outline-variant/20">
+          <div class="flex flex-col">
+            <span class="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold">Village / Panchayat</span>
+            <span id="wizard-village-display" class="text-sm font-bold text-primary truncate">Thandalam</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold">District / Taluk</span>
+            <span id="wizard-district-display" class="text-sm font-semibold text-on-surface truncate">Thiruvallur</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-[10px] text-on-surface-variant uppercase tracking-wider font-semibold">State & Geo Coordinates</span>
+            <span id="wizard-coords-display" class="text-xs font-mono text-secondary truncate">Tamil Nadu (13.016, 80.015)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: WHAT IS YOUR BUSINESS IDEA? -->
+      <div class="p-5 rounded-2xl bg-surface-container-low shadow-xl border border-outline-variant/30 space-y-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-secondary/20 text-secondary flex items-center justify-center font-bold text-sm border border-secondary/30">
+              2
+            </div>
+            <div>
+              <h2 class="font-headline-sm text-base sm:text-lg text-on-surface font-semibold flex items-center gap-2">
+                <span>What business do you want to start?</span>
+                <span class="material-symbols-outlined text-secondary text-[18px]">lightbulb</span>
+              </h2>
+              <p class="text-xs text-on-surface-variant">Type any custom venture, speak into the mic, or pick popular templates.</p>
+            </div>
+          </div>
+          <button id="mic-idea-btn" type="button" title="Speak Business Idea" class="flex items-center gap-1.5 text-tertiary font-label-badge text-xs bg-surface-container-high px-3 py-1.5 rounded-full hover:bg-surface-bright active:scale-95 transition-all border border-outline-variant/30 shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">mic</span>
+            <span id="mic-idea-label">Speak Idea</span>
+          </button>
+        </div>
+
+        <!-- Custom Business Idea Text Input -->
+        <div class="space-y-2">
+          <textarea id="custom-business-idea-input" rows="2" placeholder="e.g. Free-range country chicken poultry farm, cold-pressed coconut oil expeller, custom ladies tailoring boutique, organic oyster mushroom cultivation..." class="w-full bg-surface-container-high rounded-xl p-3 text-sm text-on-surface outline-none border border-outline-variant/40 focus:border-primary transition-all font-body-md placeholder:text-on-surface-variant/50"></textarea>
+          
+          <!-- Quick Idea Suggestion Pills -->
+          <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+            <span class="text-[11px] text-on-surface-variant">Popular Ideas:</span>
+            <button type="button" class="idea-chip text-[11px] px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-idea="Free-range country chicken poultry farm with egg incubator">Country Chicken Farm</button>
+            <button type="button" class="idea-chip text-[11px] px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-idea="Custom tailoring & readymade garments boutique">Garments & Tailoring</button>
+            <button type="button" class="idea-chip text-[11px] px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-idea="Cold-pressed groundnut & coconut oil extraction unit">Cold-Pressed Oil</button>
+            <button type="button" class="idea-chip text-[11px] px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-idea="Dairy pooling center & bulk milk chilling hub">Dairy Chilling Unit</button>
+            <button type="button" class="idea-chip text-[11px] px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/30 transition-colors" data-idea="Organic oyster mushroom cultivation and sun-dried packaging">Mushroom Farming</button>
+          </div>
+        </div>
+
+        <!-- Standard Sector Template Dropdown & Budget -->
+        <div class="pt-2 border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="w-full sm:w-1/2">
+            <label class="font-label-badge text-[11px] text-on-surface-variant uppercase">Business Sector Template</label>
+            <select id="wizard-category-select" class="w-full h-10 mt-1 bg-surface-container-high rounded-lg px-3 text-xs text-on-surface outline-none border border-outline-variant/40">
+              <option value="clothing">Garments, Tailoring & Ready-made Clothing</option>
+              <option value="dairy">Dairy & Bulk Milk Cooler Unit (BMC)</option>
+              <option value="agro_supply">Agro-Supply, Poultry & Concentrated Feed</option>
+              <option value="agro_processing">Millet & Coconut Value-Addition Processing</option>
+              <option value="artisan">Handloom Weaving & Coir Fiber Crafts</option>
+              <option value="logistics_repair">Tractor & Farm Implements Repair Service</option>
+              <option value="grocery">Rural SHG Quality Provision Store</option>
+            </select>
+          </div>
+          <div class="w-full sm:w-1/2">
+            <label class="font-label-badge text-[11px] text-on-surface-variant uppercase">Concessional Loan Scheme Eligibility</label>
+            <div class="h-10 mt-1 bg-surface-container-high rounded-lg px-3 flex items-center justify-between text-xs text-on-surface border border-outline-variant/40">
+              <span class="text-on-surface-variant">Statutory MoSJE Caps:</span>
+              <span class="font-bold text-primary font-mono">Micro ≤₹1.40L (6.5%) | Term ≤₹50L (8.0%)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: ANALYZE WITH REAL DATA & RUN CALCULATION -->
+      <div class="pt-1 flex flex-col sm:flex-row items-center gap-3">
+        <button id="wizard-analyze-btn" type="button" class="w-full sm:flex-1 h-14 rounded-2xl bg-gradient-to-r from-primary via-emerald-500 to-teal-400 hover:from-primary-container hover:to-primary text-on-primary font-headline-sm text-base font-bold flex items-center justify-center gap-3 shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-98 transition-all">
+          <span class="material-symbols-outlined text-[24px]">travel_explore</span>
+          <span>Analyze Real Local Data (5km & 10km Map)</span>
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+
+        <button data-nav-target="smart-loan-calculator" type="button" class="w-full sm:w-auto h-14 px-6 rounded-2xl bg-surface-container-high hover:bg-surface-bright text-secondary font-headline-sm text-sm font-bold flex items-center justify-center gap-2 shadow border border-secondary/30 transition-all active:scale-98 whitespace-nowrap">
+          <span class="material-symbols-outlined text-[20px]">calculate</span>
+          <span>Go to Loan Calculation</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         VIEW 3: VILLAGE INTELLIGENCE DASHBOARD (MAP, OSM, CENSUS, MANDI)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section data-view="intelligence-dashboard" class="hidden flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+      
+      <!-- Top Scope Bar -->
+      <div class="p-space-sm rounded-xl bg-surface-container-high flex items-center justify-between shadow border border-outline-variant/30">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="material-symbols-outlined text-secondary text-[20px]">location_on</span>
+          <span id="dash-location-display" class="font-headline-sm text-sm font-bold text-on-surface truncate">Anaimalai, Coimbatore</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="display-radius-tag" class="px-2 py-0.5 rounded-full bg-surface-container-low text-secondary text-xs font-mono">5.0 km Survey Radius</span>
+          <span id="listed-count-badge" class="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-xs font-mono font-semibold">7 listed businesses found</span>
+        </div>
+      </div>
+
+      <!-- Spatial Cluster Radar & Interactive Leaflet Map -->
+      <div class="rounded-xl overflow-hidden bg-surface-container-low border border-outline-variant/30 shadow-xl space-y-2 p-2">
+        <div class="flex items-center justify-between px-2 pt-1">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-tertiary text-[18px]">hub</span>
+            <h3 class="font-headline-sm text-sm text-on-surface font-semibold" data-i18n="cluster_radar_title">Spatial Cluster Radar & OpenStreetMap</h3>
+          </div>
+          <!-- Radius Toggles -->
+          <div class="flex items-center gap-1">
+            <button id="radius-5km-btn" class="radius-toggle-btn h-7 px-2.5 rounded bg-primary text-on-primary text-xs font-mono font-semibold transition-all">5km</button>
+            <button id="radius-10km-btn" class="radius-toggle-btn h-7 px-2.5 rounded text-on-surface-variant hover:text-on-surface text-xs font-mono transition-all">10km</button>
+          </div>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div id="cluster-filter-container" class="flex items-center gap-1.5 px-2 overflow-x-auto no-scrollbar py-1">
+          <button class="cluster-filter-btn active h-7 px-3 rounded-full bg-primary text-on-primary font-label-badge text-xs flex items-center justify-center flex-shrink-0 transition-all shadow-sm" data-filter="all">All</button>
+          <button id="radar-filter-cat-primary" class="cluster-filter-btn h-7 px-3 rounded-full bg-surface-container-high text-on-surface-variant font-label-badge text-xs flex items-center justify-center flex-shrink-0 transition-all hover:text-on-surface" data-filter="clothing">Clothing & Tailors</button>
+          <button class="cluster-filter-btn h-7 px-3 rounded-full bg-surface-container-high text-on-surface-variant font-label-badge text-xs flex items-center justify-center flex-shrink-0 transition-all hover:text-on-surface" data-filter="dairy">Dairy Units</button>
+          <button class="cluster-filter-btn h-7 px-3 rounded-full bg-surface-container-high text-on-surface-variant font-label-badge text-xs flex items-center justify-center flex-shrink-0 transition-all hover:text-on-surface" data-filter="agro_supply">Suppliers</button>
+          <button class="cluster-filter-btn h-7 px-3 rounded-full bg-surface-container-high text-on-surface-variant font-label-badge text-xs flex items-center justify-center flex-shrink-0 transition-all hover:text-on-surface" data-filter="artisan">Artisans</button>
+        </div>
+
+        <!-- Real Leaflet Map Container -->
+        <div id="leaflet-map-container" class="relative w-full h-64 rounded-lg overflow-hidden border border-outline-variant/30"></div>
+      </div>
+
+      <!-- Real OpenStreetMap Results Listing -->
+      <div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-2">
+        <div class="flex items-center justify-between">
+          <h4 class="font-headline-sm text-sm text-on-surface font-semibold">Mapped Nearby Commercial Entities</h4>
+          <span class="text-[11px] text-outline font-mono">Source: OpenStreetMap (Overpass)</span>
+        </div>
+        <div id="osm-business-list" class="space-y-1.5 max-h-60 overflow-y-auto pr-1"></div>
+      </div>
+
+      <!-- Census of India Demographic Baseline -->
+      <div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-primary text-[18px]">demography</span>
+            <h4 class="font-headline-sm text-sm text-on-surface font-semibold" data-i18n="census_title">Census of India Demographic Baseline</h4>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] text-tertiary font-mono">2011 Primary Census Abstract</span>
+        </div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+          <div class="p-2.5 rounded-lg bg-surface-container">
+            <span class="text-[11px] text-on-surface-variant">Rural Population</span>
+            <p id="census-pop-display" class="font-mono text-base font-bold text-on-surface">97,241</p>
+          </div>
+          <div class="p-2.5 rounded-lg bg-surface-container">
+            <span class="text-[11px] text-on-surface-variant">Rural Households</span>
+            <p id="census-hh-display" class="font-mono text-base font-bold text-on-surface">27,480</p>
+          </div>
+          <div class="p-2.5 rounded-lg bg-surface-container">
+            <span class="text-[11px] text-on-surface-variant">Literacy Rate</span>
+            <p id="census-lit-display" class="font-mono text-base font-bold text-primary">74.8%</p>
+          </div>
+          <div class="p-2.5 rounded-lg bg-surface-container">
+            <span class="text-[11px] text-on-surface-variant">Agri Laborers</span>
+            <p id="census-agri-workers" class="font-mono text-base font-bold text-secondary">21,450</p>
+          </div>
+        </div>
+        <p class="text-[10px] text-outline italic">Statutory Census baseline. Real-time expansion & migration are unmapped.</p>
+      </div>
+
+      <!-- AGMARKNET Wholesale Mandi Commodity Prices -->
+      <div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-secondary text-[18px]">currency_rupee</span>
+            <h4 class="font-headline-sm text-sm text-on-surface font-semibold" data-i18n="mandi_title">AGMARKNET Wholesale Mandi Price Index</h4>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] text-secondary font-mono">DMI / data.gov.in</span>
+        </div>
+        <div id="mandi-price-rows" class="space-y-2"></div>
+      </div>
+
+      <!-- Local Community Field Survey Insights -->
+      <div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-tertiary text-[18px]">record_voice_over</span>
+            <h4 class="font-headline-sm text-sm text-on-surface font-semibold" data-i18n="survey_title">Grassroots Community Survey Insights</h4>
+          </div>
+          <button id="btn-open-survey-modal" class="px-2.5 py-1 rounded-lg bg-primary text-on-primary text-xs font-semibold flex items-center gap-1 hover:bg-primary-container transition-all">
+            <span class="material-symbols-outlined text-[14px]">add</span> Add Survey
+          </button>
+        </div>
+        <div id="survey-records-list" class="space-y-2"></div>
+      </div>
+
+      <!-- Next Step Button to Calculator -->
+      <button data-nav-target="smart-loan-calculator" class="w-full h-12 rounded-xl bg-primary text-on-primary font-headline-sm text-sm font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-primary-container transition-all">
+        <span>Proceed to Smart Loan Structurer</span>
+        <span class="material-symbols-outlined text-[20px]">account_balance</span>
+      </button>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         VIEW 4: SMART LOAN CALCULATOR (MOSJE PS-26091 SCHEMES)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section data-view="smart-loan-calculator" class="hidden flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+      
+      <!-- Calculator Header -->
+      <div class="relative overflow-hidden rounded-xl bg-surface-container-high/90 backdrop-blur-xl p-space-md shadow-xl border border-outline-variant/30">
+        <div class="space-y-1">
+          <div class="inline-flex items-center gap-1.5 px-space-xs py-0.5 rounded-full bg-surface-container-highest">
+            <span class="material-symbols-outlined text-primary text-[14px]">policy</span>
+            <span class="font-label-badge text-label-badge text-primary uppercase">MoSJE PS-26091 Scheme Engine</span>
+          </div>
+          <h2 class="font-headline-md text-xl text-on-surface font-bold" data-i18n="calc_title">Smart Loan Structurer</h2>
+          <p class="font-body-sm text-xs text-on-surface-variant" data-i18n="calc_subtitle">Concessional credit modeling & debt health simulator</p>
+        </div>
+
+        <!-- Scheme Switcher Buttons -->
+        <div class="mt-space-md grid grid-cols-2 gap-space-xs">
+          <button id="btn-scheme-micro" class="p-space-sm rounded-lg text-left transition-all bg-surface-container-lowest/80 text-on-surface-variant border border-outline-variant/30">
+            <div class="flex items-center justify-between">
+              <span class="font-label-badge text-[11px] uppercase tracking-wider">Scheme A</span>
+              <span class="material-symbols-outlined text-[16px] opacity-40">info</span>
+            </div>
+            <p class="font-body-sm text-sm font-semibold mt-1">Micro Finance</p>
+            <p class="font-label-numeric text-[11px] text-outline">Up to ₹1.40 Lakh (6.5%)</p>
+          </button>
+          
+          <button id="btn-scheme-term" class="p-space-sm rounded-lg text-left transition-all bg-primary-container text-on-primary-container shadow-md">
+            <div class="flex items-center justify-between">
+              <span class="font-label-badge text-[11px] uppercase tracking-wider text-on-primary-container">Scheme B · Term</span>
+              <span class="material-symbols-outlined text-[16px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+            </div>
+            <p class="font-body-sm text-sm font-semibold mt-1">Term Loan System</p>
+            <p class="font-label-numeric text-[11px] text-on-primary-container/80">₹1.40L – ₹50 Lakh (8.0%)</p>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sliders Card -->
+      <div class="rounded-xl bg-surface-container-high/80 backdrop-blur-xl p-space-md space-y-space-md shadow-lg border border-outline-variant/30">
+        
+        <!-- Total Project Cost Slider -->
+        <div class="space-y-2">
+          <div class="flex items-baseline justify-between">
+            <label class="font-body-md text-sm text-on-surface font-semibold" data-i18n="label_proj_cost">Total Project Cost</label>
+            <span id="cost-display" class="font-label-numeric text-xl text-primary font-bold">₹3,20,000</span>
+          </div>
+          <input id="project-cost-slider" type="range" min="50000" max="1500000" step="10000" value="320000" class="w-full accent-primary h-2 bg-surface-variant rounded-full cursor-pointer"/>
+          <div class="flex justify-between font-label-numeric text-[11px] text-outline">
+            <span>₹50,000 (Micro)</span>
+            <span>₹5,00,000</span>
+            <span>₹15,00,000 (Term)</span>
+          </div>
+        </div>
+
+        <!-- Margin Capital Slider -->
+        <div class="space-y-2">
+          <div class="flex items-baseline justify-between">
+            <div class="flex items-center gap-1.5">
+              <label class="font-body-md text-sm text-on-surface font-semibold" data-i18n="label_margin_money">Margin Money (Self)</label>
+              <span class="font-label-badge text-xs text-secondary">(Min 10% Floor)</span>
+            </div>
+            <div class="text-right">
+              <span id="margin-val-display" class="font-label-numeric text-base text-secondary font-bold">₹35,000</span>
+              <span id="margin-pct-display" class="font-label-numeric text-xs text-on-surface-variant ml-1">(10.9%)</span>
+            </div>
+          </div>
+          <input id="margin-share-slider" type="range" min="10" max="30" step="0.5" value="10.9" class="w-full accent-secondary h-2 bg-surface-variant rounded-full cursor-pointer"/>
+          <div class="flex justify-between font-label-numeric text-[11px] text-outline">
+            <span>10% (Floor)</span>
+            <span>20%</span>
+            <span>30%</span>
+          </div>
+        </div>
+
+        <!-- Calculated Summary Stats -->
+        <div class="pt-space-xs grid grid-cols-2 gap-space-xs">
+          <div class="rounded-lg bg-surface-container p-space-sm space-y-1">
+            <span class="font-label-badge text-[11px] text-on-surface-variant" data-i18n="label_approved_loan">Approved MoSJE Loan</span>
+            <p id="loan-amount-display" class="font-label-numeric text-lg text-on-surface font-bold">₹2,88,000</p>
+            <div id="funding-gap-badge" class="inline-flex items-center gap-1 text-[11px] font-label-badge text-primary">
+              <span class="material-symbols-outlined text-[13px]">verified</span> Zero Funding Gap
+            </div>
+          </div>
+          
+          <div class="rounded-lg bg-surface-container p-space-sm space-y-1">
+            <span class="font-label-badge text-[11px] text-on-surface-variant" data-i18n="label_tenure_moratorium">Tenure & Moratorium</span>
+            <p id="tenure-display" class="font-label-numeric text-lg text-tertiary font-bold">7 Yrs <span class="font-body-sm text-[12px] text-on-surface-variant">/ 84m</span></p>
+            <span id="moratorium-subtext" class="inline-flex items-center gap-1 text-[11px] font-label-badge text-on-surface-variant">
+              <span class="material-symbols-outlined text-[13px]">timelapse</span> 6m Principal Holiday
+            </span>
+          </div>
+        </div>
+
+        <!-- Financial Results Grid -->
+        <div class="grid grid-cols-3 gap-2 text-center pt-2 border-t border-outline-variant/20">
+          <div class="p-2 rounded bg-surface-container">
+            <span class="text-[11px] text-on-surface-variant" data-i18n="label_monthly_emi">Monthly EMI</span>
+            <p id="emi-display" class="font-mono text-base font-bold text-primary">₹4,763</p>
+          </div>
+          <div class="p-2 rounded bg-surface-container">
+            <span class="text-[11px] text-on-surface-variant" data-i18n="label_quarterly_inst">Quarterly</span>
+            <p id="quarterly-display" class="font-mono text-base font-bold text-on-surface">₹14,289</p>
+          </div>
+          <div class="p-2 rounded bg-surface-container">
+            <span class="text-[11px] text-on-surface-variant" data-i18n="label_total_interest">Total Interest</span>
+            <p id="total-interest-display" class="font-mono text-base font-bold text-secondary">₹94,952</p>
+          </div>
+        </div>
+
+        <!-- Warnings & Eligibility Alerts -->
+        <div id="calc-warnings-container" class="hidden space-y-1.5 pt-2"></div>
+
+        <!-- Plain Language Moratorium & Financial Explainer -->
+        <div class="p-3 rounded-xl bg-surface-container/60 border border-outline-variant/30 text-xs text-on-surface-variant flex items-start gap-2.5 mt-2">
+          <span class="material-symbols-outlined text-secondary text-[18px] flex-shrink-0 mt-0.5">info</span>
+          <div>
+            <strong class="text-on-surface">What is a Principal Holiday (Moratorium)?</strong>
+            <p class="mt-0.5 text-on-surface-variant/90">An initial period when the normal repayment schedule is deferred so your business has time to stabilize. Interest may still apply according to MoSJE scheme guidelines.</p>
+          </div>
+        </div>
+
+        <!-- Statutory Concessional Notice & Loan Approval Disclaimer -->
+        <div class="p-3 rounded-xl bg-forest-900/60 border border-secondary/30 text-xs text-sand flex items-center gap-2">
+          <span class="material-symbols-outlined text-secondary text-[16px] flex-shrink-0">verified_user</span>
+          <span><strong>Notice:</strong> Indicative financial estimate based on MoSJE PS-26091 concessional guidelines. This calculation is an advisory projection and does not constitute a guaranteed bank loan approval.</span>
+        </div>
+      </div>
+
+      <!-- Amortization Schedule Preview -->
+      <div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-2">
+        <h3 class="font-headline-sm text-sm text-on-surface font-semibold">Amortization Schedule (Year 1 Sample)</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr class="border-b border-outline-variant/40 text-on-surface-variant font-mono">
+                <th class="p-2">Month</th>
+                <th class="p-2">Phase</th>
+                <th class="p-2">Principal</th>
+                <th class="p-2">Interest</th>
+                <th class="p-2">Total EMI</th>
+                <th class="p-2">Remaining</th>
+              </tr>
+            </thead>
+            <tbody id="amortization-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Action Button to Generate DPR -->
+      <button id="btn-generate-report" class="w-full h-12 rounded-xl bg-primary text-on-primary font-headline-sm text-sm font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-primary-container transition-all">
+        <span data-i18n="btn_generate_dpr">Generate Bankable Feasibility Report (DPR)</span>
+        <span class="material-symbols-outlined text-[20px]">assignment</span>
+      </button>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         VIEW 5: BANKABLE FEASIBILITY REPORT (DPR)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section data-view="feasibility-report" class="hidden flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+      <div id="feasibility-report-container" class="w-full">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation Bar (Stitch Design Preserved) -->
+  <nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(0,17,12,0.6)] border-t border-outline-variant/30">
+    <div class="flex items-center justify-around h-16 px-space-xs">
+      <a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full transition-colors text-primary font-semibold" data-path="landing-village-explorer" href="#">
+        <span class="material-symbols-outlined text-[22px]">location_city</span>
+        <span data-i18n="nav_home" class="font-label-badge text-[11px] mt-0.5">Home</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="wizard-setup" href="#">
+        <span class="material-symbols-outlined text-[22px]">tune</span>
+        <span data-i18n="nav_setup" class="font-label-badge text-[11px] mt-0.5">Setup</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="intelligence-dashboard" href="#">
+        <span class="material-symbols-outlined text-[22px]">insights</span>
+        <span data-i18n="nav_intel" class="font-label-badge text-[11px] mt-0.5">Intel</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="smart-loan-calculator" href="#">
+        <span class="material-symbols-outlined text-[22px]">account_balance</span>
+        <span data-i18n="nav_schemes" class="font-label-badge text-[11px] mt-0.5">Schemes</span>
+      </a>
+      <a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-on-surface-variant hover:text-on-surface transition-colors" data-path="feasibility-report" href="#">
+        <span class="material-symbols-outlined text-[22px]">assignment</span>
+        <span data-i18n="nav_report" class="font-label-badge text-[11px] mt-0.5">Report</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- How It Works Modal -->
+  <div id="how-it-works-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+    <div class="w-full max-w-lg rounded-2xl bg-surface-container-high p-6 space-y-4 border border-outline-variant/40 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-[22px]">lightbulb</span>
+          <h3 class="font-headline-sm text-base text-on-surface font-semibold">How RuralBiz AI Works</h3>
+        </div>
+        <button id="btn-close-how-modal" class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined text-[18px]">close</span>
+        </button>
+      </div>
+
+      <div class="space-y-3.5 text-xs text-on-surface-variant">
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">1</span>
+          <div>
+            <strong class="text-on-surface text-sm">Lock Your Village Panchayat:</strong>
+            <p class="mt-0.5">Click "Use My Current Location" or search your village/block. GPS resolves your local panchayat without manual administrative codes.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">2</span>
+          <div>
+            <strong class="text-on-surface text-sm">Enter Any Business Venture:</strong>
+            <p class="mt-0.5">Type your own custom business idea freely in text, pick quick popular suggestions, or speak via mic in English, Tamil, or Hindi.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">3</span>
+          <div>
+            <strong class="text-on-surface text-sm">Real Market & Price Intelligence:</strong>
+            <p class="mt-0.5">Inspect genuine OpenStreetMap business clusters in 5km/10km, Census 2011 demographic demand, and AGMARKNET wholesale mandi prices.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-3 items-start">
+          <span class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs flex-shrink-0 mt-0.5">4</span>
+          <div>
+            <strong class="text-on-surface text-sm">Bank-Ready Feasibility DPR:</strong>
+            <p class="mt-0.5">Generates a Detailed Project Report with MoSJE concessional loan interest rates (6.5% - 8%), moratorium terms, and break-even sales volume.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-outline-variant/30">
+        <button id="modal-start-plan-btn" class="w-full h-11 rounded-xl bg-primary text-on-primary font-headline-sm text-xs font-bold flex items-center justify-center gap-2 hover:bg-primary-container transition-all">
+          <span>Start My Rural Business Plan</span>
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Local Field Survey Modal Form -->
+  <div id="survey-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+    <div class="w-full max-w-lg rounded-2xl bg-surface-container-high p-6 space-y-4 border border-outline-variant/40 shadow-2xl">
+      <div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+        <h3 class="font-headline-sm text-base text-on-surface font-semibold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-primary text-[20px]">add_comment</span>
+          <span>Submit Local Participatory Survey</span>
+        </h3>
+        <button id="btn-close-survey-modal" class="text-on-surface-variant hover:text-on-surface">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block text-on-surface-variant uppercase mb-1">Respondent Role</label>
+          <select id="survey-role" class="w-full h-10 rounded-lg bg-surface-container px-3 text-on-surface outline-none border border-outline-variant/30">
+            <option value="Local Consumer">Local Village Resident / Consumer</option>
+            <option value="Small Shop Owner">Small Kirana / Shop Owner</option>
+            <option value="Farmer / Cultivator">Farmer / Livestock Rearer</option>
+            <option value="SHG Member">SHG Federation Member</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-on-surface-variant uppercase mb-1">Frequently Purchased Products</label>
+          <input id="survey-products" type="text" placeholder="e.g. Fresh Milk, Concentrated Cattle Feed, Millet Flour" class="w-full h-10 rounded-lg bg-surface-container px-3 text-on-surface outline-none border border-outline-variant/30"/>
+        </div>
+
+        <div>
+          <label class="block text-on-surface-variant uppercase mb-1">Critical Unmet Local Need</label>
+          <textarea id="survey-need" rows="2" placeholder="e.g. Lack of cold storage causes evening milk spoiling during summer months" class="w-full rounded-lg bg-surface-container p-2.5 text-on-surface outline-none border border-outline-variant/30"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-on-surface-variant uppercase mb-1">Supplier Reliability Rating (1-5)</label>
+          <select id="survey-rating" class="w-full h-10 rounded-lg bg-surface-container px-3 text-on-surface outline-none border border-outline-variant/30">
+            <option value="5">5 - Highly Reliable</option>
+            <option value="4" selected>4 - Good Availability</option>
+            <option value="3">3 - Moderate Delays</option>
+            <option value="2">2 - Frequent Stockouts</option>
+            <option value="1">1 - Poor / Inaccessible</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-outline-variant/30">
+        <button id="btn-submit-survey" class="h-10 px-5 rounded-lg bg-primary text-on-primary font-label-badge text-xs font-semibold hover:bg-primary-container transition-all">
+          Save Grassroots Record
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/translations.js?v=2.2.0"></script>
+  <script src="/app.js?v=2.2.0"></script>
+</body>
+</html>

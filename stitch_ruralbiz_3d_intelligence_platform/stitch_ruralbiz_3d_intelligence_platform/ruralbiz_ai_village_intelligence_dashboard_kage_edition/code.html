@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#131315;color:#e5e1e4;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-secondary-fixed": "#1c1c18",
+          "tertiary-fixed-dim": "#ffb4ac",
+          "on-secondary": "#31312c",
+          "on-tertiary": "#690007",
+          "surface-container-high": "#2a2a2c",
+          "on-primary": "#690002",
+          "secondary-fixed-dim": "#c9c6c0",
+          "on-background": "#e5e1e4",
+          "primary-fixed-dim": "#ffb4a9",
+          "on-error-container": "#ffdad6",
+          "on-primary-fixed": "#410001",
+          "secondary-fixed": "#e5e2db",
+          "surface-dim": "#131315",
+          "error-container": "#93000a",
+          "surface-tint": "#ffb4a9",
+          "on-secondary-container": "#b7b5af",
+          "inverse-primary": "#c00008",
+          "on-surface": "#e5e1e4",
+          "secondary-container": "#474742",
+          "outline-variant": "#5d3f3b",
+          "secondary": "#c9c6c0",
+          "on-error": "#690005",
+          "tertiary-fixed": "#ffdad6",
+          "on-primary-fixed-variant": "#930004",
+          "primary": "#ffb4a9",
+          "inverse-surface": "#e5e1e4",
+          "on-tertiary-container": "#fff9f8",
+          "tertiary": "#ffb4ac",
+          "inverse-on-surface": "#313032",
+          "surface-bright": "#39393b",
+          "surface-container": "#201f21",
+          "error": "#ffb4ab",
+          "on-tertiary-fixed-variant": "#93000d",
+          "on-tertiary-fixed": "#410002",
+          "on-secondary-fixed-variant": "#474742",
+          "surface-container-lowest": "#0e0e10",
+          "surface": "#131315",
+          "primary-container": "#e0231c",
+          "outline": "#ad8883",
+          "surface-container-low": "#1c1b1d",
+          "surface-container-highest": "#353437",
+          "background": "#131315",
+          "on-primary-container": "#fff9f8",
+          "on-surface-variant": "#e7bdb7",
+          "surface-variant": "#353437",
+          "primary-fixed": "#ffdad5",
+          "tertiary-container": "#d9312f",
+          "vermilion": "#e0231c"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.125rem",
+          "lg": "0.25rem",
+          "xl": "0.5rem",
+          "full": "0.75rem"
+        },
+        "spacing": {
+          "space-xs": "0.25rem",
+          "space-xl": "2.5rem",
+          "margin-mobile": "1rem",
+          "space-sm": "0.5rem",
+          "margin": "1rem",
+          "gutter": "1.5rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "gutter-sm": "1rem",
+          "gutter-lg": "2rem",
+          "margin-desktop": "3rem"
+        },
+        "fontFamily": {
+          "headline-md": ["Sora"],
+          "label-sm": ["JetBrains Mono"],
+          "body-md": ["Hanken Grotesk"],
+          "headline-lg": ["Sora"],
+          "body-sm": ["Hanken Grotesk"],
+          "body-lg": ["Hanken Grotesk"],
+          "label-md": ["JetBrains Mono"],
+          "headline-sm": ["Sora"],
+          "label-lg": ["JetBrains Mono"],
+          "headline-xl": ["Sora"]
+        }
+      }
+    }
+  };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface font-body-md text-[14px] antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-[#131315]/90 backdrop-blur-xl pt-safe border-b border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.8)]"><div class="h-20 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><img alt="RuralBiz AI Emblem" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1VVnVSTqlqKgwJDE_6xnymlCfAq8O4BLdwoYI65pyYtd3fkV2f_FC0srPJKglayrIcqgrJE1Oiy553mwlwuek4SMX21NubA7uyw4JliGxB-SSXK1n-CQQ4JQ5A1SHx_hJ6LeRbsowicmia-dA7_tDR3idGr2ertT57X08dWjc04Um64NzmSldHiQRypNnHy3jFjl1KeYydr2V-YB35KFL2AvIiYGQEu6YNEVKQmntQFogXscjslnO0mrOgG"/><div class="flex flex-col min-w-0"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-[17px] text-white tracking-tight truncate leading-none">RuralBiz AI</span></div><span class="font-body-sm text-[12px] text-zinc-400 truncate leading-tight mt-0.5">MoSJE · Smart India Hackathon</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><div class="flex items-center bg-surface-container-high border border-white/10 rounded-full p-0.5"><button aria-label="English" class="h-7 px-2.5 rounded-full bg-[#e0231c] text-white font-label-md text-[11px] font-semibold flex items-center justify-center transition-all shadow-sm">EN</button><button aria-label="Hindi" class="h-7 px-2 rounded-full text-zinc-400 font-label-md text-[11px] flex items-center justify-center hover:text-white transition-all">हि</button><button aria-label="Tamil" class="h-7 px-2 rounded-full text-zinc-400 font-label-md text-[11px] flex items-center justify-center hover:text-white transition-all">த</button></div><a aria-label="User Profile" class="w-10 h-10 flex items-center justify-center rounded-full" data-path="profile-identity" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-[#e0231c]/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcWZxJEkuqD6bk--4u2TeWFq5wdWW-DvrRa81W_HgDgrxlBsr__f9SXUUPqX91Eg-NPQ-aZVCWp5QXxnPJB-khnufsWDFksIhx0km4CfWaUsqnuxWHVoeE0lbAVniVsZRZ20YY2UTdV93tyZ05A6nsAzYvHno-UJ_UQHlZsU-kkwNH35g2_KOPk9mqRhtaJ90JFclDZxYlQUCLDBycl60YA2wRUeCkaM4xKU_4otEzMDap95GRvYx40w"/></a></div></div><div class="px-margin pb-2.5 flex items-center justify-between gap-space-sm"><div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1c1b1d] border border-white/10"><span class="w-2 h-2 rounded-full bg-[#e0231c] animate-pulse"></span><span class="font-label-md text-[10px] text-zinc-300 uppercase tracking-wider font-semibold">MoSJE Public Data Connected</span></div><span class="font-label-md text-[10px] text-zinc-500 uppercase tracking-wider truncate">Kage Precision Intel</span></div></header><main class="flex-1 flex flex-col relative w-full pt-28 pb-24 bg-[#131315] min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<!-- Scope & Verification Header Strip -->
+<section class="px-margin pt-space-xs pb-space-sm flex flex-col gap-space-xs">
+<!-- Location & Category Row -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex flex-col gap-space-xs shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-[#e0231c] text-[20px] flex-shrink-0">location_on</span>
+<span class="font-headline-sm text-[16px] text-white font-medium truncate">Anaimalai, Coimbatore</span>
+</div>
+<button class="px-2.5 py-1 rounded-md bg-[#2a2a2c] border border-white/10 text-white font-label-md text-[11px] hover:border-[#e0231c]/50 transition-colors flex items-center gap-1">
+<span>Change</span>
+<span class="material-symbols-outlined text-[13px] text-zinc-400">edit_location_alt</span>
+</button>
+</div>
+<div class="flex items-center justify-between flex-wrap gap-space-xs">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#0e0e10] border border-white/10 text-zinc-300 font-label-md text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-[#e0231c]">radar</span>
+<span>5.0 km Survey Radius</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#0e0e10] border border-white/10 text-zinc-300 font-label-md text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-zinc-400">local_shipping</span>
+<span>Dairy &amp; Allied Products</span>
+</div>
+</div>
+</div>
+<!-- Confidence & Completeness Meter -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex items-center justify-between gap-space-sm shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="relative w-12 h-12 flex-shrink-0 flex items-center justify-center">
+<svg class="w-12 h-12 -rotate-90" viewbox="0 0 36 36">
+<path class="text-zinc-800" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-[#e0231c]" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="84, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-label-md text-[11px] text-white font-bold">84%</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[14px] font-semibold text-white leading-tight">Data Completeness</span>
+<span class="font-body-sm text-[12px] text-zinc-400 flex items-center gap-1 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#e0231c] animate-ping"></span>
+            3 Verified Public APIs Connected
+          </span>
+</div>
+</div>
+<div class="px-2 py-1 rounded bg-[#0e0e10] border border-white/10 text-zinc-300 font-label-md text-[10px] uppercase text-right leading-none">
+        NDDB · OGD · CEIC
+      </div>
+</div>
+</section>
+<!-- Interactive Map & Competitor Cluster Section -->
+<section class="px-margin py-space-xs flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#e0231c] text-[18px]">hub</span>
+<h2 class="font-headline-sm text-[16px] text-white font-semibold">Spatial Cluster Radar</h2>
+</div>
+<span class="font-label-md text-[10px] text-zinc-400 bg-[#1c1b1d] border border-white/10 px-2 py-0.5 rounded">4 Anchors Mapped</span>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-0.5" id="cluster-filters">
+<button class="filter-btn active h-7 px-3 rounded-md bg-[#e0231c] text-white font-label-md text-[11px] font-medium flex items-center justify-center flex-shrink-0 transition-all shadow-sm" data-filter="all">
+        All (7)
+      </button>
+<button class="filter-btn h-7 px-3 rounded-md bg-[#1c1b1d] border border-white/10 text-zinc-400 font-label-md text-[11px] flex items-center justify-center flex-shrink-0 transition-all hover:text-white" data-filter="competitors">
+        Competitors (3)
+      </button>
+<button class="filter-btn h-7 px-3 rounded-md bg-[#1c1b1d] border border-white/10 text-zinc-400 font-label-md text-[11px] flex items-center justify-center flex-shrink-0 transition-all hover:text-white" data-filter="suppliers">
+        Suppliers (2)
+      </button>
+<button class="filter-btn h-7 px-3 rounded-md bg-[#1c1b1d] border border-white/10 text-zinc-400 font-label-md text-[11px] flex items-center justify-center flex-shrink-0 transition-all hover:text-white" data-filter="niches">
+        Underserved Niches (2)
+      </button>
+</div>
+<!-- Stylized Charred Sumi-Ink Radar Map Viewport -->
+<div class="relative w-full h-56 rounded-lg overflow-hidden bg-[#0e0e10] border border-white/10 flex items-center justify-center shadow-lg">
+<!-- Radar Background Grid Rings -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+<div class="w-24 h-24 rounded-full border border-zinc-700"></div>
+<div class="w-44 h-44 rounded-full border border-zinc-800 absolute"></div>
+<div class="w-64 h-64 rounded-full border border-zinc-800/60 absolute"></div>
+<div class="w-full h-px bg-zinc-800/70 absolute"></div>
+<div class="h-full w-px bg-zinc-800/70 absolute"></div>
+</div>
+<!-- Live Radar Sweep Light Beam (Vermilion Accent) -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-48 h-48 rounded-full bg-gradient-to-tr from-[#e0231c]/15 via-transparent to-transparent animate-spin" style="animation-duration: 7s;"></div>
+</div>
+<!-- Center Origin Dot (Search Hub) -->
+<div class="absolute z-10 flex flex-col items-center">
+<div class="w-3.5 h-3.5 rounded-full bg-white ring-4 ring-white/20 flex items-center justify-center shadow-[0_0_12px_rgba(255,255,255,0.7)]">
+<div class="w-1.5 h-1.5 rounded-full bg-[#0e0e10]"></div>
+</div>
+<span class="font-label-md text-[9px] text-zinc-300 bg-[#1c1b1d]/90 border border-white/10 px-1 rounded mt-1">Anaimalai Central</span>
+</div>
+<!-- Interactive Pin A (Lakshmi Dairy) -->
+<button class="map-pin absolute top-12 left-16 z-20 flex flex-col items-center transform -translate-x-1/2 -translate-y-1/2 focus:outline-none transition-transform hover:scale-110 active:scale-95" data-category="competitors" id="pin-a-marker" onclick="selectPin('pin-a')">
+<div class="w-8 h-8 rounded-full bg-[#1c1b1d] border border-white/20 text-white flex items-center justify-center shadow-md relative">
+<span class="material-symbols-outlined text-[17px]">store</span>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-[#e0231c] rounded-full"></span>
+</div>
+<span class="font-label-md text-[9px] bg-[#0e0e10]/95 border border-white/10 text-zinc-200 px-1.5 py-0.5 rounded mt-0.5">Lakshmi Dairy</span>
+</button>
+<!-- Interactive Pin B (Amutham Feed Depot) -->
+<button class="map-pin absolute bottom-10 left-20 z-20 flex flex-col items-center transform -translate-x-1/2 -translate-y-1/2 focus:outline-none transition-transform hover:scale-110 active:scale-95" data-category="suppliers" id="pin-b-marker" onclick="selectPin('pin-b')">
+<div class="w-8 h-8 rounded-full bg-[#1c1b1d] border border-white/20 text-zinc-300 flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[17px]">agriculture</span>
+</div>
+<span class="font-label-md text-[9px] bg-[#0e0e10]/95 border border-white/10 text-zinc-200 px-1.5 py-0.5 rounded mt-0.5">Amutham Feed</span>
+</button>
+<!-- Interactive Pin C (Underserved Chilling Unit - Niche) -->
+<button class="map-pin absolute top-8 right-12 z-20 flex flex-col items-center transform -translate-x-1/2 -translate-y-1/2 focus:outline-none transition-transform hover:scale-110 active:scale-95" data-category="niches" id="pin-c-marker" onclick="selectPin('pin-c')">
+<div class="w-9 h-9 rounded-full bg-[#e0231c] text-white flex items-center justify-center shadow-[0_0_18px_rgba(224,35,28,0.8)] animate-bounce relative">
+<span class="material-symbols-outlined text-[19px]" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+<span class="absolute -top-1 -right-1 px-1 bg-white text-[#0e0e10] rounded-full text-[8px] font-bold">HOT</span>
+</div>
+<span class="font-label-md text-[9px] bg-[#e0231c] text-white px-1.5 py-0.5 rounded font-bold shadow mt-0.5">BMC Gap Spot</span>
+</button>
+<!-- Interactive Pin D (Gramin Mandi) -->
+<button class="map-pin absolute bottom-8 right-16 z-20 flex flex-col items-center transform -translate-x-1/2 -translate-y-1/2 focus:outline-none transition-transform hover:scale-110 active:scale-95" data-category="competitors" id="pin-d-marker" onclick="selectPin('pin-d')">
+<div class="w-8 h-8 rounded-full bg-[#1c1b1d] border border-white/20 text-zinc-300 flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-[17px]">shopping_basket</span>
+</div>
+<span class="font-label-md text-[9px] bg-[#0e0e10]/95 border border-white/10 text-zinc-200 px-1.5 py-0.5 rounded mt-0.5">Weekly Mandi</span>
+</button>
+<!-- Radius Scale Indicator in Map -->
+<div class="absolute bottom-2 left-3 bg-[#0e0e10]/90 border border-white/10 px-2 py-0.5 rounded text-[10px] font-label-md text-zinc-400 flex items-center gap-1">
+<span class="w-2 h-0.5 bg-[#e0231c]"></span> 1 km scale
+      </div>
+</div>
+<!-- Active Pin Inspection Card (Dynamic Preview) -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex items-center justify-between gap-space-sm shadow-sm transition-all duration-200" id="pin-preview-box">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-md bg-[#e0231c]/15 border border-[#e0231c]/30 text-[#e0231c] flex items-center justify-center flex-shrink-0" id="pin-icon-box">
+<span class="material-symbols-outlined text-[20px]" id="pin-icon">ac_unit</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<h3 class="font-headline-sm text-[14px] text-white truncate font-medium" id="pin-title">BMC Gap Opportunity</h3>
+<span class="font-label-md text-[10px] px-1.5 py-0.5 rounded bg-[#e0231c]/20 text-[#ffb4a9] border border-[#e0231c]/30 font-bold flex-shrink-0" id="pin-badge">High Demand</span>
+</div>
+<span class="font-body-sm text-[12px] text-zinc-400 truncate" id="pin-desc">3.5 km away · No chilling facility within 14 km</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-md bg-[#2a2a2c] hover:bg-[#353437] text-white border border-white/10 font-label-md text-[11px] flex-shrink-0 transition-colors">
+        Inspect
+      </button>
+</div>
+</section>
+<!-- Local Demographic & Market Metrics Section (Obsidian Cards) -->
+<section class="px-margin py-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#e0231c] text-[18px]">analytics</span>
+<h2 class="font-headline-sm text-[16px] text-white font-semibold">Demographic &amp; Supply Baseline</h2>
+</div>
+<span class="font-label-md text-[10px] text-zinc-500">Validated Sources</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- Metric Card 1 -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-body-sm text-[12px] text-zinc-400">Village Population</span>
+<span class="font-label-lg text-[22px] font-bold text-white mt-1 leading-tight tracking-tight">8,420</span>
+</div>
+<div class="mt-space-xs pt-1.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#0e0e10] border border-white/10 text-zinc-300 font-label-md text-[10px] leading-tight">
+<span class="w-1.5 h-1.5 rounded-full bg-[#e0231c] flex-shrink-0"></span>
+            Census '11 / GP '23
+          </span>
+</div>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-body-sm text-[12px] text-zinc-400">Estimated Cattle</span>
+<span class="font-label-lg text-[22px] font-bold text-white mt-1 leading-tight tracking-tight">1,840</span>
+</div>
+<div class="mt-space-xs pt-1.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#0e0e10] border border-white/10 text-zinc-300 font-label-md text-[10px] leading-tight">
+<span class="w-1.5 h-1.5 rounded-full bg-zinc-400 flex-shrink-0"></span>
+            Livestock Census '22
+          </span>
+</div>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-body-sm text-[12px] text-zinc-400">Daily Milk Yield</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-label-lg text-[22px] font-bold text-white leading-tight">~4,200</span>
+<span class="font-body-sm text-[12px] text-zinc-400">L/day</span>
+</div>
+</div>
+<div class="mt-space-xs pt-1.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#0e0e10] border border-white/10 text-zinc-300 font-label-md text-[10px] leading-tight">
+<span class="w-1.5 h-1.5 rounded-full bg-[#e0231c] flex-shrink-0"></span>
+            Co-op Society Record
+          </span>
+</div>
+</div>
+<!-- Metric Card 4 -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex flex-col justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-body-sm text-[12px] text-zinc-400">Unmet Chilling Gap</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-label-lg text-[22px] font-bold text-[#ffb4a9] leading-tight">~1,100</span>
+<span class="font-body-sm text-[12px] text-zinc-400">L/day</span>
+</div>
+</div>
+<div class="mt-space-xs pt-1.5">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-[#e0231c]/15 border border-[#e0231c]/30 text-[#ffb4a9] font-label-md text-[10px] leading-tight">
+<span class="w-1.5 h-1.5 rounded-full bg-[#e0231c] flex-shrink-0"></span>
+            AI Haulage Model
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Evidence-Backed Highlight Opportunity Card -->
+<section class="px-margin py-space-xs">
+<div class="relative bg-[#1c1b1d] border border-[#e0231c]/30 rounded-lg p-space-md shadow-xl overflow-hidden">
+<!-- Subtle vermilion glow ambient backdrop -->
+<div class="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-[#e0231c]/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-2">
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-[#e0231c] text-white font-label-md text-[10px] font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-[13px]">local_fire_department</span>
+<span>HIGH-ROI OPPORTUNITY</span>
+</div>
+<span class="font-label-md text-[12px] text-[#ffb4a9] font-semibold tracking-wide">Rank #1 in Cluster</span>
+</div>
+<h3 class="font-headline-sm text-[18px] text-white font-bold leading-snug">
+        Decentralized Solar Bulk Milk Cooler (BMC)
+      </h3>
+<p class="font-body-sm text-[13px] text-zinc-300 mt-2 leading-relaxed">
+        Nearest government or private BMC is located <span class="text-white font-semibold">14 km away</span> in Pollachi town. Morning collection milk spoilage during summer months climbs to <span class="text-[#ffb4a9] font-semibold">8.5%</span> due to mid-day ambient heat during bullock haulage.
+      </p>
+<!-- Key Economic Driver Points -->
+<div class="mt-space-sm pt-space-xs grid grid-cols-2 gap-space-xs">
+<div class="bg-[#0e0e10] border border-white/10 rounded-md p-space-xs flex flex-col">
+<span class="font-body-sm text-[11px] text-zinc-400">Est. Capex</span>
+<span class="font-label-md text-[13px] text-white font-semibold">₹4.8 - 6.2 Lakhs</span>
+</div>
+<div class="bg-[#0e0e10] border border-white/10 rounded-md p-space-xs flex flex-col">
+<span class="font-body-sm text-[11px] text-zinc-400">Payback Period</span>
+<span class="font-label-md text-[13px] text-[#ffb4a9] font-semibold">14 - 18 Months</span>
+</div>
+</div>
+<div class="mt-space-sm flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5 text-zinc-400 text-[12px]">
+<span class="material-symbols-outlined text-[16px] text-[#e0231c]">verified</span>
+<span>Eligible for MoSJE Venture Subsidy</span>
+</div>
+<button class="text-[#ffb4a9] hover:text-white font-label-md text-[12px] font-semibold flex items-center gap-1 transition-colors">
+<span>Explore Niche</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Seasonal Factors & Risk Matrix -->
+<section class="px-margin py-space-sm flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#e0231c] text-[18px]">calendar_month</span>
+<h2 class="font-headline-sm text-[16px] text-white font-semibold">Seasonal Cycles &amp; Risk Matrix</h2>
+</div>
+<span class="font-label-md text-[10px] text-zinc-500">Micro-Climate Data</span>
+</div>
+<!-- Dual Seasonal Comparison Bar (Vermilion & Slate-Charcoal) -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-[11px] text-zinc-400">Annual Yield Dynamics</span>
+<span class="font-label-md text-[11px] text-zinc-500">Coimbatore Agro-Zone</span>
+</div>
+<div class="relative w-full h-2.5 rounded bg-[#0e0e10] overflow-hidden flex border border-white/10">
+<div class="h-full bg-[#e0231c]" style="width: 58%;" title="Oct-Feb Peak"></div>
+<div class="h-full bg-zinc-600" style="width: 42%;" title="Apr-Jun Lean"></div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#e0231c] flex-shrink-0"></span>
+<span class="font-label-md text-[11px] text-white font-semibold">Peak Season (Oct - Feb)</span>
+</div>
+<span class="font-body-sm text-[12px] text-zinc-400 mt-0.5">Abundant green sorghum &amp; coconut canopy grazing. +28% milk surplus.</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-zinc-500 flex-shrink-0"></span>
+<span class="font-label-md text-[11px] text-zinc-300 font-semibold">Lean Season (Apr - Jun)</span>
+</div>
+<span class="font-body-sm text-[12px] text-zinc-400 mt-0.5">Water table reduction; daytime temps &gt;38°C. Higher spoilage risk.</span>
+</div>
+</div>
+</div>
+<!-- Active Risk Alert Box -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg p-space-sm flex items-start gap-space-sm shadow-sm">
+<div class="w-8 h-8 rounded-md bg-[#e0231c]/15 border border-[#e0231c]/30 text-[#e0231c] flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[19px]">warning</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-[14px] text-white font-semibold">Feed Volatility Risk</span>
+<span class="font-label-md text-[9px] px-1.5 py-0.5 rounded bg-zinc-800 border border-white/10 text-[#ffb4a9] font-bold">MODERATE</span>
+</div>
+<p class="font-body-sm text-[12px] text-zinc-400 mt-1 leading-relaxed">
+          Dry fodder costs jump <span class="text-white font-semibold">+18%</span> in pre-monsoon weeks.
+          <span class="text-[#ffb4a9] font-medium">Recommended Mitigation:</span> Setup community Napier grass silage trench pits with Gram Panchayat subsidy.
+        </p>
+</div>
+</div>
+</section>
+<!-- Interactive SWOT Analysis Accordion -->
+<section class="px-margin py-space-xs flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#e0231c] text-[18px]">balance</span>
+<h2 class="font-headline-sm text-[16px] text-white font-semibold">Gramin SWOT Diagnostic</h2>
+</div>
+<span class="font-label-md text-[10px] text-zinc-500">Tap to Expand</span>
+</div>
+<!-- SWOT Item: Strengths -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg overflow-hidden shadow-sm">
+<button class="w-full p-space-sm flex items-center justify-between text-left hover:bg-[#201f21] transition-colors" onclick="toggleSwot('swot-s')">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded bg-zinc-800 border border-white/10 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">thumb_up</span>
+</div>
+<span class="font-headline-sm text-[14px] text-white font-medium">Strengths (In-Cluster)</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-zinc-400 transition-transform" id="swot-s-icon">expand_more</span>
+</button>
+<div class="hidden px-space-sm pb-space-sm flex flex-col gap-1 text-[12px] text-zinc-400 border-t border-white/[0.06] pt-2" id="swot-s">
+<div class="flex items-start gap-1.5">
+<span class="text-[#e0231c] mt-0.5">•</span>
+<span>Strong presence of established dairy farmers' cooperative federation with existing daily tanker routes.</span>
+</div>
+<div class="flex items-start gap-1.5">
+<span class="text-[#e0231c] mt-0.5">•</span>
+<span>High indigenous Kangayam &amp; cross-bred Jersey cattle concentration with high butterfat content (4.2%+).</span>
+</div>
+</div>
+</div>
+<!-- SWOT Item: Weaknesses -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg overflow-hidden shadow-sm">
+<button class="w-full p-space-sm flex items-center justify-between text-left hover:bg-[#201f21] transition-colors" onclick="toggleSwot('swot-w')">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded bg-zinc-800 border border-white/10 text-zinc-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">report_problem</span>
+</div>
+<span class="font-headline-sm text-[14px] text-white font-medium">Weaknesses (Operational)</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-zinc-400 transition-transform" id="swot-w-icon">expand_more</span>
+</button>
+<div class="hidden px-space-sm pb-space-sm flex flex-col gap-1 text-[12px] text-zinc-400 border-t border-white/[0.06] pt-2" id="swot-w">
+<div class="flex items-start gap-1.5">
+<span class="text-zinc-500 mt-0.5">•</span>
+<span>Power grid load-shedding during peak afternoon milking (requires backup solar/genset investment).</span>
+</div>
+<div class="flex items-start gap-1.5">
+<span class="text-zinc-500 mt-0.5">•</span>
+<span>Low local financial literacy regarding structured working capital credit lines.</span>
+</div>
+</div>
+</div>
+<!-- SWOT Item: Opportunities -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg overflow-hidden shadow-sm">
+<button class="w-full p-space-sm flex items-center justify-between text-left hover:bg-[#201f21] transition-colors" onclick="toggleSwot('swot-o')">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded bg-[#e0231c]/15 border border-[#e0231c]/30 text-[#ffb4a9] flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">trending_up</span>
+</div>
+<span class="font-headline-sm text-[14px] text-white font-medium">Opportunities (Market &amp; Gov)</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-zinc-400 transition-transform" id="swot-o-icon">expand_more</span>
+</button>
+<div class="hidden px-space-sm pb-space-sm flex flex-col gap-1 text-[12px] text-zinc-400 border-t border-white/[0.06] pt-2" id="swot-o">
+<div class="flex items-start gap-1.5">
+<span class="text-[#e0231c] mt-0.5">•</span>
+<span>MoSJE / DDU-GKY credit-linked capital subsidies for marginalized youth rural enterprise setups (up to 35%).</span>
+</div>
+<div class="flex items-start gap-1.5">
+<span class="text-[#e0231c] mt-0.5">•</span>
+<span>Direct value-add to Paneer &amp; Ghee yields 40% higher margins over raw liquid milk dispatch.</span>
+</div>
+</div>
+</div>
+<!-- SWOT Item: Threats -->
+<div class="bg-[#1c1b1d] border border-white/10 rounded-lg overflow-hidden shadow-sm">
+<button class="w-full p-space-sm flex items-center justify-between text-left hover:bg-[#201f21] transition-colors" onclick="toggleSwot('swot-t')">
+<div class="flex items-center gap-space-xs">
+<div class="w-6 h-6 rounded bg-[#93000a]/20 border border-[#93000a]/40 text-[#ffb4ab] flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px]">shield_with_heart</span>
+</div>
+<span class="font-headline-sm text-[14px] text-white font-medium">Threats &amp; External Factors</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-zinc-400 transition-transform" id="swot-t-icon">expand_more</span>
+</button>
+<div class="hidden px-space-sm pb-space-sm flex flex-col gap-1 text-[12px] text-zinc-400 border-t border-white/[0.06] pt-2" id="swot-t">
+<div class="flex items-start gap-1.5">
+<span class="text-[#ffb4ab] mt-0.5">•</span>
+<span>Monsoon delays affecting groundwater levels for livestock watering during early Q2.</span>
+</div>
+<div class="flex items-start gap-1.5">
+<span class="text-[#ffb4ab] mt-0.5">•</span>
+<span>Inter-district private processor price cartels squeezing per-liter farmgate procurement rates.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Notice of Open Government Data Integrity -->
+<section class="px-margin pt-space-xs pb-space-sm">
+<div class="bg-[#0e0e10] border border-white/10 rounded-lg p-space-sm flex items-start gap-space-sm text-[11px] text-zinc-400 leading-relaxed">
+<span class="material-symbols-outlined text-[#e0231c] text-[18px] flex-shrink-0 mt-0.5">policy</span>
+<p>
+<span class="text-white font-semibold">Data Transparency Notice:</span> Illustrative sample dataset for Pollachi-Anaimalai agricultural cluster. Real-time metrics sync live from verified Open Government Data (OGD) Platform, NDDB Dairy Statistics, and MoSJE registry upon cluster query.
+      </p>
+</div>
+</section>
+<!-- Sticky-Action Conversion Panel -->
+<section class="px-margin pt-space-xs pb-space-lg flex flex-col gap-space-xs">
+<button class="w-full h-12 rounded-lg bg-[#e0231c] hover:bg-[#c00008] text-white font-headline-sm text-[14px] font-bold flex items-center justify-center gap-2 shadow-lg shadow-[#e0231c]/25 active:translate-y-0.5 transition-all">
+<span>View Full AI Feasibility Report &amp; PDF</span>
+<span class="material-symbols-outlined text-[18px]">download_for_offline</span>
+</button>
+<button class="w-full h-11 rounded-lg bg-[#1c1b1d] border border-white/10 text-white font-headline-sm text-[13px] font-medium flex items-center justify-center gap-2 hover:bg-[#2a2a2c] active:translate-y-0.5 transition-all">
+<span class="material-symbols-outlined text-[#e0231c] text-[18px]">calculate</span>
+<span>Simulate Government Loan in Calculator</span>
+<span class="material-symbols-outlined text-[16px] text-zinc-400">arrow_forward</span>
+</button>
+</section>
+</div>
+<script>
+  // Pin Data Registry
+  const pinData = {
+    'pin-a': {
+      title: 'Lakshmi Dairy Collection',
+      badge: 'Active Hub',
+      badgeClass: 'bg-zinc-800 text-white border border-white/10',
+      desc: '1.2 km away · Direct morning milk procurement center (Capacity: 900 L)',
+      icon: 'store',
+      iconBoxClass: 'bg-zinc-800 border border-white/10 text-white'
+    },
+    'pin-b': {
+      title: 'Amutham Feed Depot',
+      badge: 'Supplier',
+      badgeClass: 'bg-zinc-800 text-zinc-300 border border-white/10',
+      desc: '2.8 km away · Wholesale cattle feed & mineral mixture warehouse',
+      icon: 'agriculture',
+      iconBoxClass: 'bg-zinc-800 border border-white/10 text-zinc-300'
+    },
+    'pin-c': {
+      title: 'Underserved Chilling Opportunity',
+      badge: 'High Demand',
+      badgeClass: 'bg-[#e0231c]/20 text-[#ffb4a9] border border-[#e0231c]/30 font-bold',
+      desc: '3.5 km away · No cold chain facility within 14 km radius',
+      icon: 'ac_unit',
+      iconBoxClass: 'bg-[#e0231c]/15 border border-[#e0231c]/30 text-[#e0231c]'
+    },
+    'pin-d': {
+      title: 'Gramin Weekly Mandi',
+      badge: 'Market Outlet',
+      badgeClass: 'bg-zinc-800 text-white border border-white/10',
+      desc: '4.1 km away · Active Tuesdays: 3,000+ rural visitors and traders',
+      icon: 'shopping_basket',
+      iconBoxClass: 'bg-zinc-800 border border-white/10 text-white'
+    }
+  };
+
+  function selectPin(pinId) {
+    const data = pinData[pinId];
+    if (!data) return;
+
+    const titleEl = document.getElementById('pin-title');
+    const badgeEl = document.getElementById('pin-badge');
+    const descEl = document.getElementById('pin-desc');
+    const iconEl = document.getElementById('pin-icon');
+    const iconBoxEl = document.getElementById('pin-icon-box');
+
+    if (titleEl) titleEl.textContent = data.title;
+    if (badgeEl) {
+      badgeEl.textContent = data.badge;
+      badgeEl.className = 'font-label-md text-[10px] px-1.5 py-0.5 rounded ' + data.badgeClass;
+    }
+    if (descEl) descEl.textContent = data.desc;
+    if (iconEl) iconEl.textContent = data.icon;
+    if (iconBoxEl) iconBoxEl.className = 'w-10 h-10 rounded-md flex items-center justify-center flex-shrink-0 ' + data.iconBoxClass;
+
+    // Visual pulse on card
+    const card = document.getElementById('pin-preview-box');
+    if (card) {
+      card.classList.add('scale-[0.98]');
+      setTimeout(() => card.classList.remove('scale-[0.98]'), 150);
+    }
+  }
+
+  // Filter Buttons Handler
+  document.querySelectorAll('#cluster-filters .filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#cluster-filters .filter-btn').forEach(b => {
+        b.classList.remove('bg-[#e0231c]', 'text-white', 'active');
+        b.classList.add('bg-[#1c1b1d]', 'border', 'border-white/10', 'text-zinc-400');
+      });
+      btn.classList.remove('bg-[#1c1b1d]', 'border', 'border-white/10', 'text-zinc-400');
+      btn.classList.add('bg-[#e0231c]', 'text-white', 'active');
+
+      const filter = btn.getAttribute('data-filter');
+      const pins = document.querySelectorAll('.map-pin');
+      pins.forEach(pin => {
+        if (filter === 'all' || pin.getAttribute('data-category') === filter) {
+          pin.style.display = 'flex';
+        } else {
+          pin.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Accordion Toggle
+  function toggleSwot(id) {
+    const content = document.getElementById(id);
+    const icon = document.getElementById(id + '-icon');
+    if (!content || !icon) return;
+
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      icon.style.transform = 'rotate(0deg)';
+    }
+  }
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-[#0e0e10]/95 backdrop-blur-xl border-t border-white/10 shadow-[0_-4px_24px_rgba(0,0,0,0.8)]"><div class="flex items-center justify-around h-16 px-space-xs"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-zinc-400 hover:text-white transition-colors" data-path="landing-village-explorer" href="#"><span class="material-symbols-outlined text-[20px]">location_city</span><span class="font-label-md text-[10px] mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-zinc-400 hover:text-white transition-colors" data-path="wizard-setup" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="font-label-md text-[10px] mt-0.5">Setup</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full transition-colors text-[#e0231c] font-semibold" data-path="intelligence-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">insights</span><span class="font-label-md text-[10px] mt-0.5 text-white">Intel</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-zinc-400 hover:text-white transition-colors" data-path="smart-loan-calculator" href="#"><span class="material-symbols-outlined text-[20px]">account_balance</span><span class="font-label-md text-[10px] mt-0.5">Schemes</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] h-full text-zinc-400 hover:text-white transition-colors" data-path="feasibility-compare" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="font-label-md text-[10px] mt-0.5">Compare</span></a></div></nav></body></html>
